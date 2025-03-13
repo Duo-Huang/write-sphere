@@ -14,7 +14,7 @@ const FileExplorer = () => {
                 onOpenChange={onOpenChange}
                 placement="left"
                 classNames={{
-                    base: 'content-height data-[placement=right]:top-[40px] data-[placement=right]:bottom-[20px] rounded-none',
+                    base: 'content-height data-[placement=right]:top-[40px] data-[placement=right]:bottom-[20px] rounded-none bg-stone-100 dark:bg-zinc-800',
                 }}
             >
                 <DrawerContent>

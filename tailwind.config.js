@@ -9,6 +9,11 @@ export default {
     ],
     theme: {
         extend: {},
+        // colors: {
+        //     'dark-400': '#3C3C3C',
+        //     'dark-600': '#252526',
+        //     'dark-700': '#1E1E1E',
+        // },
         screens: {
             xs: '480px',
             // => @media (min-width: 480px) { ... }
@@ -29,7 +34,7 @@ export default {
             // => @media (min-width: 1536px) { ... }
         },
     },
-    darkMode: 'class',
+    darkMode: 'selector',
     plugins: [],
     plugins: [heroui()],
 }
