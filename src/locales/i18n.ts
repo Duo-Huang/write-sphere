@@ -7,7 +7,6 @@ import zh from './zh'
 
 const fallbackLng = SETTING.LANGUAGE.EN
 
-
 i18n.use(initReactI18next).init({
     resources: {
         [SETTING.LANGUAGE.EN]: {
@@ -36,5 +35,3 @@ store.subscribe((state) => state.config.language, (lang) => {
         i18n.changeLanguage(lang)
     }
 })
-
-export default i18n

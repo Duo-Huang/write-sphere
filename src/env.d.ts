@@ -2,8 +2,9 @@
 
 
 interface ImportMetaEnv {
-    readonly APP_API_BASE_URL: string
-    readonly APP_ENV: string
+    readonly APP_ENABLE_STORE_ENCRYPT: boolean
+    readonly APP_STORE_ENCRYPT_KEY: string
+    readonly APP_STORE_ENCRYPT_IV: string
     // 更多环境变量...
 }
 

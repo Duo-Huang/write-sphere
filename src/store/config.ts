@@ -5,7 +5,7 @@ const initialState: AppStore.ConfigState = {
     language: SETTING.LANGUAGE.SYSTEM
 }
 
-const createConfigSlice: AppStore.SliceCreator<AppStore.ConfigStore> = (set, get) => {
+const createConfigSlice: AppStore.SliceCreator<AppStore.ConfigStore> = (set) => {
     return {
         ...initialState,
         setTheme: (theme: AppStore.ConfigState['theme']) => {
