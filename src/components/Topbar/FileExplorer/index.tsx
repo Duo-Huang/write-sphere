@@ -1,9 +1,10 @@
 import { Drawer, DrawerContent, useDisclosure } from '@heroui/react'
-import { useBreakpoint } from '@/hooks'
+import { useScreenBreakpoint } from '@/hooks'
 
 const FileExplorer = () => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure()
-    const breakpoint = useBreakpoint()
+    const breakpoint = useScreenBreakpoint()
+    console.log('FileExplorer render')
 
     return (
         <div>

@@ -1,9 +1,9 @@
 import { Drawer, DrawerContent, useDisclosure } from '@heroui/react'
-import { useBreakpoint } from '@/hooks'
+import { useScreenBreakpoint } from '@/hooks'
 
 const Menu = () => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure()
-    const breakpoint = useBreakpoint()
+    const breakpoint = useScreenBreakpoint()
 
     return (
         <div>
