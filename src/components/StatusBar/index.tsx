@@ -1,6 +1,6 @@
 const StatusBar = () => {
     return (
-        <div className="w-full text-white h-5 text-sm bg-sky-600 flex items-center justify-between px-4 fixed bottom-0 left-0 z-50">
+        <div className="fixed bottom-0 left-0 z-50 flex h-5 w-full items-center justify-between bg-sky-600 px-4 text-sm text-white">
             <div>Markdown</div>
             <div>HTML</div>
         </div>

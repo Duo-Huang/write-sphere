@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '@/styles/global.css'
-import '@/locales/i18n'
 import { default as store } from '@/store'
+import '@/locales/i18n'
 import { SETTING } from '@/config'
+import '@/styles/global.css'
 import App from '@/App.tsx'
 
 store.subscribe(
@@ -13,11 +13,8 @@ store.subscribe(
             theme === SETTING.THEME.DARK ||
             (theme === SETTING.THEME.SYSTEM && window.matchMedia('(prefers-color-scheme: dark)').matches)
 
-        document.documentElement.classList.add('transition-colors', 'duration-500')
+        document.documentElement.classList.add('transition-colors', 'duration-1000', 'ease-out')
         document.documentElement.classList.toggle('dark', isDark)
-        // setTimeout(() => {
-        //     document.documentElement.classList.remove('transition-colors', 'duration-500')
-        // }, 5000)
     },
     { fireImmediately: true }
 )

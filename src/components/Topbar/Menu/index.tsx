@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { Drawer, DrawerContent, useDisclosure } from '@heroui/react'
 import { useScreenBreakpoint } from '@/hooks'
 
-const Menu = () => {
+const Menu = memo(() => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure()
     const breakpoint = useScreenBreakpoint()
 
@@ -23,6 +24,6 @@ const Menu = () => {
             </Drawer>
         </div>
     )
-}
+})
 
 export default Menu

@@ -4,10 +4,15 @@ import Icon from '@/components/common/Icon'
 import Menu from './Menu'
 import FileName from './FileName'
 import ActionBar from './ActionBar'
+import useStore from '@/store'
 
 const TopBar = () => {
+    const isTopBarVisible = useStore((state) => state.layout.isTopBarVisible)
+
     return (
-        <div className="w-full h-10 bg-stone-200 dark:bg-neutral-700 flex items-center justify-between py-1.5 px-4 fixed top-0 left-0 z-50">
+        <div
+            className={`fixed flex h-10 w-full items-center justify-between bg-stone-200 px-4 py-1.5 shadow-lg dark:bg-neutral-700 dark:shadow-black/60 ${isTopBarVisible ? 'top-0' : '-top-10'} left-0 z-50 duration-500 ease-out`}
+        >
             <div className="flex items-center gap-2">
                 <FileExplorer />
                 <EditorToolbar />

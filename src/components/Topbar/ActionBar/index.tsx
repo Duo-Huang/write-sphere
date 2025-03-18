@@ -1,8 +1,9 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import useStore from '@/store'
 import { SETTING } from '@/config'
 
-const ActionBar = () => {
+const ActionBar = memo(() => {
     const { t } = useTranslation()
     const setLanguage = useStore((state) => state.config.setLanguage)
     const setTheme = useStore((state) => state.config.setTheme)
@@ -33,6 +34,6 @@ const ActionBar = () => {
             </button>
         </div>
     )
-}
+})
 
 export default ActionBar

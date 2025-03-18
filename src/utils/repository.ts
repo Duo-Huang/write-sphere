@@ -1,7 +1,6 @@
 import CryptoJS from 'crypto-js'
 
-
-const SECRET_KEY = CryptoJS.enc.Utf8.parse(import.meta.env.APP_STORE_SECRET_KEY)
+const SECRET_KEY = CryptoJS.enc.Utf8.parse(import.meta.env.APP_STORE_SECRET_KEY) // not secret
 
 const SECRET_IV = CryptoJS.enc.Utf8.parse(import.meta.env.APP_STORE_SECRET_IV)
 
@@ -127,6 +126,4 @@ class Repository {
     }
 }
 
-const repository = new Repository()
-
-export { repository as default, Repository }
+export default new Repository()

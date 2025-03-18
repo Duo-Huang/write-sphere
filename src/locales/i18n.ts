@@ -23,15 +23,18 @@ i18n.use(initReactI18next).init({
     },
 })
 
-store.subscribe((state) => state.config.language, (lang) => {
-    if (lang === SETTING.LANGUAGE.SYSTEM) {
-        const language = navigator.language.split('-')[0]
-        if (language in SETTING.LANGUAGE) {
-            i18n.changeLanguage(language)
+store.subscribe(
+    (state) => state.config.language,
+    (lang) => {
+        if (lang === SETTING.LANGUAGE.SYSTEM) {
+            const language = navigator.language.split('-')[0]
+            if (language in SETTING.LANGUAGE) {
+                i18n.changeLanguage(language)
+            } else {
+                i18n.changeLanguage(fallbackLng)
+            }
         } else {
-            i18n.changeLanguage(fallbackLng)
+            i18n.changeLanguage(lang)
         }
-    } else {
-        i18n.changeLanguage(lang)
     }
-})
+)

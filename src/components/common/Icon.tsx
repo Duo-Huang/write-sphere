@@ -1,7 +1,5 @@
 import React from 'react'
 
-// 使用 glob 导入所有 SVG
-
 const svgModules = import.meta.glob<React.FC<React.SVGProps<SVGSVGElement>>>('@/assets/svg/*.svg', {
     query: '?react',
     import: 'default',
@@ -10,7 +8,6 @@ const svgModules = import.meta.glob<React.FC<React.SVGProps<SVGSVGElement>>>('@/
 
 const icons = Object.entries(svgModules).reduce(
     (acc, [path, component]) => {
-        // 从路径中提取文件名作为 key
         const key = path.match(/\/([^/]+)\.svg$/)?.[1] ?? ''
         return { ...acc, [key]: component }
     },
@@ -44,7 +41,7 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
         return (
             <SvgComponent
                 ref={ref}
-                className={`icon fill-current ${className}`.trim()}
+                className={`icon fill-current transition-colors duration-500 ease-out ${className}`.trim()}
                 style={mergedStyle}
                 {...props}
             />

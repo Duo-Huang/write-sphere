@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { Drawer, DrawerContent, useDisclosure } from '@heroui/react'
 import { useScreenBreakpoint } from '@/hooks'
 
-const FileExplorer = () => {
+const FileExplorer = memo(() => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure()
     const breakpoint = useScreenBreakpoint()
     console.log('FileExplorer render')
@@ -24,6 +25,6 @@ const FileExplorer = () => {
             </Drawer>
         </div>
     )
-}
+})
 
 export default FileExplorer

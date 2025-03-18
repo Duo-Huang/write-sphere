@@ -3,14 +3,13 @@ import { SETTING } from '@/config'
 
 declare global {
     namespace AppStore {
-
         type SliceCreator<S> = StateCreator<
             RootStore,
             [
-                ["zustand/devtools", never],
-                ["zustand/persist", unknown],
-                ["zustand/subscribeWithSelector", never],
-                ["zustand/immer", never],
+                ['zustand/devtools', never],
+                ['zustand/persist', unknown],
+                ['zustand/subscribeWithSelector', never],
+                ['zustand/immer', never],
             ],
             [],
             S
@@ -22,14 +21,11 @@ declare global {
             config: ConfigStore
         }
 
-        interface RootState {
-        }
+        interface RootState {}
 
-        interface RootActions {
-        }
+        interface RootActions {}
 
-        interface RootStore extends RootState, RootActions, SliceStore { }
-
+        interface RootStore extends RootState, RootActions, SliceStore {}
 
         // Layout Store
         interface LayoutState {
@@ -43,12 +39,12 @@ declare global {
             reset: () => void
         }
 
-        interface LayoutStore extends LayoutState, LayoutActions { }
+        interface LayoutStore extends LayoutState, LayoutActions {}
 
         // Config store
         interface ConfigState {
-            theme: SETTING.THEME,
-            language: SETTING.LANGUAGE,
+            theme: SETTING.THEME
+            language: SETTING.LANGUAGE
         }
 
         interface ConfigActions {
@@ -56,8 +52,8 @@ declare global {
             setLanguage: (language: ConfigState['language']) => void
         }
 
-        interface ConfigStore extends ConfigState, ConfigActions { }
+        interface ConfigStore extends ConfigState, ConfigActions {}
     }
 }
 
-export { }
+export {}
