@@ -12,6 +12,7 @@ const FileExplorer = memo(() => {
             <span onClick={onOpen}>File</span>
             <Drawer
                 size={breakpoint === 'xs' ? 'full' : 'sm'}
+                backdrop="transparent"
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
                 placement="left"

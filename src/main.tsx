@@ -9,11 +9,11 @@ import App from '@/App.tsx'
 store.subscribe(
     (state) => state.config.theme,
     (theme) => {
+        window.localStorage.setItem('theme', theme) // used for index.html
+
         const isDark =
             theme === SETTING.THEME.DARK ||
             (theme === SETTING.THEME.SYSTEM && window.matchMedia('(prefers-color-scheme: dark)').matches)
-
-        document.documentElement.classList.add('transition-colors', 'duration-1000', 'ease-out')
         document.documentElement.classList.toggle('dark', isDark)
     },
     { fireImmediately: true }

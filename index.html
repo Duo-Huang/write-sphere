@@ -1,11 +1,18 @@
 <!doctype html>
-<html lang="en" class="dark:text-stone-50">
+<html lang="en" class="transition-colors duration-1000 ease-out dark:bg-neutral-700 dark:text-stone-50">
     <head>
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/write.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/style.css" />
         <title>WriteSphere</title>
+        <script>
+            const theme = localStorage.getItem('theme')
+            const isDark =
+                theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+
+            document.documentElement.classList.toggle('dark', isDark)
+        </script>
     </head>
     <body>
         <div id="root"></div>
