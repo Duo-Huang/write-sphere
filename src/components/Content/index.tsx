@@ -1,10 +1,10 @@
 import Editor from './Editor'
 import Preview from './Preview'
 import ModelBar from './ModelBar'
-// import useStore from '@/store'
+import useStore from '@/store'
 
 const Content = () => {
-    // const isTopBarVisible = useStore((state) => state.layout.isTopBarVisible)
+    const isTopBarVisible = useStore((state) => state.layout.isTopBarVisible)
 
     return (
         <div

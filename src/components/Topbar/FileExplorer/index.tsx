@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Drawer, DrawerContent, useDisclosure } from '@heroui/react'
+import { Drawer, DrawerHeader, DrawerContent, DrawerBody, useDisclosure } from '@heroui/react'
 import { useScreenBreakpoint } from '@/hooks'
 
 const FileExplorer = memo(() => {
@@ -11,17 +11,22 @@ const FileExplorer = memo(() => {
         <div>
             <span onClick={onOpen}>File</span>
             <Drawer
-                size={breakpoint === 'xs' ? 'full' : 'sm'}
+                size={breakpoint === 'xs' ? 'xs' : 'sm'}
                 backdrop="transparent"
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
                 placement="left"
                 classNames={{
-                    base: 'content-height data-[placement=right]:top-[40px] data-[placement=right]:bottom-[20px] rounded-none bg-stone-100 dark:bg-zinc-800',
+                    base: 'side-panel-height bg-neutral-50 !ml-2 data-[placement=right]:top-[60px] shadow-2xl rounded-2xl dark:shadow-black dark:bg-zinc-800',
                 }}
             >
                 <DrawerContent>
-                    <h1>File</h1>
+                    <DrawerHeader>
+                        <h1>File Tool bar</h1>
+                    </DrawerHeader>
+                    <DrawerBody>
+                        <h1>File tree</h1>
+                    </DrawerBody>
                 </DrawerContent>
             </Drawer>
         </div>
