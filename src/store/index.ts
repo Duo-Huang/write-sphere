@@ -8,8 +8,10 @@ import {
     type StorageValue,
 } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
-import createLayoutSlice from './layout'
-import createConfigSlice from './config'
+import createLayoutSlice from './slice/layout'
+import createConfigSlice from './slice/config'
+import createEditorSlice from './slice/editor'
+import autoRun from './autoRun'
 
 const middlewareConfig: {
     devtools: DevtoolsOptions
@@ -31,6 +33,7 @@ const middlewareConfig: {
             return {
                 layout: state.layout,
                 config: state.config,
+                editor: state.editor,
             }
         },
         onRehydrateStorage: (state) => {
@@ -57,6 +60,10 @@ const middlewareConfig: {
                     ...currentState.config,
                     ...(persistedState as Partial<AppStore.RootStore>).config,
                 },
+                editor: {
+                    ...currentState.editor,
+                    ...(persistedState as Partial<AppStore.RootStore>).editor,
+                },
             }
         },
     },
@@ -81,6 +88,7 @@ const useStore = create<AppStore.RootStore>()(
                 immer((set, get, store) => ({
                     layout: { ...createLayoutSlice(set, get, store) },
                     config: { ...createConfigSlice(set, get, store) },
+                    editor: { ...createEditorSlice(set, get, store) },
                 }))
             ),
             middlewareConfig.persist
@@ -89,4 +97,14 @@ const useStore = create<AppStore.RootStore>()(
     )
 )
 
-export default useStore
+export type Store = typeof useStore
+
+export type StoreWithAutoRun = typeof useStore & {
+    autoRun: () => void
+}
+
+(useStore as StoreWithAutoRun).autoRun = () => {
+    autoRun(useStore)
+}
+
+export default useStore as StoreWithAutoRun

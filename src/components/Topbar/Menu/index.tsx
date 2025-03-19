@@ -1,17 +1,16 @@
 import { memo } from 'react'
 import { Drawer, DrawerHeader, DrawerContent, DrawerBody, useDisclosure } from '@heroui/react'
-import { useScreenBreakpoint } from '@/hooks'
+import useStore from '@/store'
 
 const Menu = memo(() => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure()
-    const breakpoint = useScreenBreakpoint()
-    console.log('FileExplorer render')
+    const currentScreen = useStore((state) => state.layout.currentScreen)
 
     return (
         <div>
             <span onClick={onOpen}>Menu</span>
             <Drawer
-                size={breakpoint === 'xs' ? 'xs' : 'sm'}
+                size={currentScreen === 'xs' ? 'xs' : 'sm'}
                 backdrop="transparent"
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}

@@ -9,7 +9,6 @@ const ActionBar = memo(() => {
     const setTheme = useStore((state) => state.config.setTheme)
     const theme = useStore((state) => state.config.theme)
 
-    console.log('ActionBar render')
     return (
         <div>
             <h3>{t('action.name')}</h3>

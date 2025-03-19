@@ -1,4 +1,4 @@
-export const breakpoint: Screen.ScreenBreakpoint = {
+export const breakpoint: Screen.BreakpointConfig = {
     xs: '480px',
     sm: '640px',
     md: '768px',
