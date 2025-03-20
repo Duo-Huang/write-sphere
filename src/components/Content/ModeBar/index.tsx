@@ -16,7 +16,6 @@ const ModeBar = () => {
     const toggleMode = useStore((state) => state.editor.toggleMode)
 
     useEffect(() => {
-        console.log('reset mode----')
         if (currentScreen === SCREEN.SIZE.XS) {
             if (mode[EDITOR.MODE.REALTIME]) {
                 setMode(EDITOR.MODE.EDIT)
@@ -48,8 +47,7 @@ const ModeBar = () => {
                     <Icon name="menuToggleTop" className="!size-6 text-gray-600 dark:text-neutral-500" />
                 </button>
                 <button
-                    disabled={currentScreen === SCREEN.SIZE.XS}
-                    className={`mb-2 flex h-6 w-full items-center justify-center overflow-hidden rounded transition-all duration-300 disabled:cursor-not-allowed ${getActionBtnClass(!mode[EDITOR.MODE.EDIT])} ${mode[EDITOR.MODE.FOCUS] ? '!m-0 !h-0' : ''}`}
+                    className={`mb-2 flex h-6 w-full items-center justify-center overflow-hidden rounded transition-all duration-300 disabled:cursor-not-allowed ${getActionBtnClass(!mode[EDITOR.MODE.EDIT])} ${mode[EDITOR.MODE.FOCUS] ? '!m-0 !h-0' : ''} ${currentScreen === SCREEN.SIZE.XS ? 'hidden' : ''}`}
                     onClick={toggleEditMode}
                 >
                     <Icon name="sideToggle" className="!size-6 text-gray-600 dark:text-neutral-500" />

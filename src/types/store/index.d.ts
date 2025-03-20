@@ -32,5 +32,10 @@ declare global {
 
         interface RootStore extends RootState, RootActions, SliceStore { }
 
+        interface PersistedStore {
+            config: ConfigStore,
+            editor: EditorStore,
+        }
+
     }
 }

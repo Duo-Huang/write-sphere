@@ -1,11 +1,12 @@
-import { EDITOR } from "@/config"
+import { EDITOR, SCREEN } from "@/config"
+import { calculateBreakpoint } from "@/utils/screen"
 
 
 const initialState: AppStore.EditorState = {
-    _prevEditMode: EDITOR.MODE.REALTIME,
+    _prevEditMode: calculateBreakpoint() === SCREEN.SIZE.XS ? EDITOR.MODE.EDIT : EDITOR.MODE.REALTIME,
     mode: {
-        [EDITOR.MODE.REALTIME]: true,
-        [EDITOR.MODE.EDIT]: false,
+        [EDITOR.MODE.REALTIME]: calculateBreakpoint() != SCREEN.SIZE.XS,
+        [EDITOR.MODE.EDIT]: calculateBreakpoint() === SCREEN.SIZE.XS,
         [EDITOR.MODE.PREVIEW]: false,
         [EDITOR.MODE.HEADLESS]: false,
         [EDITOR.MODE.FOOTLESS]: false,

@@ -15,7 +15,7 @@ import autoRun from './autoRun'
 
 const middlewareConfig: {
     devtools: DevtoolsOptions
-    persist: PersistOptions<AppStore.RootStore, Partial<AppStore.RootStore>>
+    persist: PersistOptions<AppStore.RootStore, AppStore.PersistedStore>
 } = {
     devtools: {
         name: 'write-spere-store',
@@ -23,7 +23,7 @@ const middlewareConfig: {
     },
     persist: {
         name: 'write-spere-store',
-        version: 1,
+        version: Number(import.meta.env.APP_STORE_VERSION) || Date.now(),
         // storage: {
         //     getItem: (key: string) => repository.get(key),
         //     setItem: (key: string, value: StorageValue<Partial<AppStore.RootStore>>) => repository.set(key, value, true),
@@ -31,7 +31,6 @@ const middlewareConfig: {
         // },
         partialize: (state) => {
             return {
-                layout: state.layout,
                 config: state.config,
                 editor: state.editor,
             }
@@ -49,13 +48,10 @@ const middlewareConfig: {
             }
         },
         merge: (persistedState, currentState) => {
+
             if (!persistedState) return currentState
             return {
                 ...currentState,
-                layout: {
-                    ...currentState.layout,
-                    ...(persistedState as Partial<AppStore.RootStore>).layout,
-                },
                 config: {
                     ...currentState.config,
                     ...(persistedState as Partial<AppStore.RootStore>).config,
