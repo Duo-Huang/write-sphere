@@ -11,6 +11,7 @@ declare global {
         interface ConfigActions {
             setTheme: (theme: ConfigState['theme']) => void
             setLanguage: (language: ConfigState['language']) => void
+            reset: () => void
         }
 
         interface ConfigStore extends ConfigState, ConfigActions { }

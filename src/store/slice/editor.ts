@@ -2,6 +2,7 @@ import { EDITOR } from "@/config"
 
 
 const initialState: AppStore.EditorState = {
+    _prevEditMode: EDITOR.MODE.REALTIME,
     mode: {
         [EDITOR.MODE.REALTIME]: true,
         [EDITOR.MODE.EDIT]: false,
@@ -13,12 +14,13 @@ const initialState: AppStore.EditorState = {
     },
 }
 
-const createEditorSlice: AppStore.SliceCreator<AppStore.EditorStore> = (set) => {
+const createEditorSlice: AppStore.SliceCreator<AppStore.EditorStore> = (set, get) => {
     return {
         ...initialState,
         setMode: (mode: EDITOR.MODE) => {
             set((state) => {
                 if (mode === EDITOR.MODE.REALTIME) {
+                    state.editor._prevEditMode = EDITOR.MODE.REALTIME
                     state.editor.mode = {
                         ...state.editor.mode,
                         [EDITOR.MODE.REALTIME]: true,
@@ -26,6 +28,7 @@ const createEditorSlice: AppStore.SliceCreator<AppStore.EditorStore> = (set) => 
                         [EDITOR.MODE.PREVIEW]: false,
                     }
                 } else if (mode === EDITOR.MODE.EDIT) {
+                    state.editor._prevEditMode = EDITOR.MODE.EDIT
                     state.editor.mode = {
                         ...state.editor.mode,
                         [EDITOR.MODE.EDIT]: true,
@@ -57,18 +60,43 @@ const createEditorSlice: AppStore.SliceCreator<AppStore.EditorStore> = (set) => 
                         [EDITOR.MODE.FOOTLESS]: true,
                     }
                 }
-            })
+            },
+                undefined,
+                'editor/setMode'
+            )
         },
         toggleMode: (mode: EDITOR.MODE) => {
             set((state) => {
+                state.editor.mode[mode] = !state.editor.mode[mode]
                 if (mode === EDITOR.MODE.FOCUS) {
-                    state.editor.mode.focus = !state.editor.mode.focus
-                    state.editor.mode.headless = state.editor.mode.focus
-                    state.editor.mode.footless = state.editor.mode.focus
-                } else {
-                    state.editor.mode[mode] = !state.editor.mode[mode]
+                    state.editor.mode[EDITOR.MODE.HEADLESS] = state.editor.mode[EDITOR.MODE.FOCUS]
+                    state.editor.mode[EDITOR.MODE.FOOTLESS] = state.editor.mode[EDITOR.MODE.FOCUS]
+                } else if (mode === EDITOR.MODE.PREVIEW) {
+                    if (state.editor.mode[mode]) { // is preview mode now
+                        state.editor.mode[EDITOR.MODE.EDIT] = false
+                        state.editor.mode[EDITOR.MODE.REALTIME] = false
+                    } else { // is not preview mode now
+                        state.editor.mode[EDITOR.MODE.EDIT] = state.editor._prevEditMode === EDITOR.MODE.EDIT
+                        state.editor.mode[EDITOR.MODE.REALTIME] = state.editor._prevEditMode === EDITOR.MODE.REALTIME
+                    }
+
                 }
-            })
+            },
+                undefined,
+                'editor/toggleMode'
+            )
+        },
+        reset: () => {
+            set(
+                {
+                    editor: {
+                        ...get().editor,
+                        ...initialState,
+                    },
+                },
+                undefined,
+                'editor/reset'
+            )
         },
     }
 }

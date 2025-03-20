@@ -1,8 +1,17 @@
-export const breakpoint: Screen.BreakpointConfig = {
-    xs: '480px',
-    sm: '640px',
-    md: '768px',
-    lg: '1024px',
-    xl: '1280px',
-    '2xl': '1536px',
+export enum SIZE {
+    XS = 'xs',
+    SM = 'sm',
+    MD = 'md',
+    LG = 'lg',
+    XL = 'xl',
+    '2XL' = '2xl',
+}
+
+export const BREAKPOINT: Record<SIZE, PixelValue> = {
+    [SIZE.XS]: '480px',
+    [SIZE.SM]: '640px',
+    [SIZE.MD]: '768px',
+    [SIZE.LG]: '1024px',
+    [SIZE.XL]: '1280px',
+    [SIZE['2XL']]: '1536px',
 }

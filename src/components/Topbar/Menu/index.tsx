@@ -1,16 +1,17 @@
 import { memo } from 'react'
 import { Drawer, DrawerHeader, DrawerContent, DrawerBody, useDisclosure } from '@heroui/react'
 import useStore from '@/store'
+import { SCREEN } from '@/config'
 
 const Menu = memo(() => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure()
     const currentScreen = useStore((state) => state.layout.currentScreen)
-
+    const reset = useStore((state) => state.reset)
     return (
         <div>
             <span onClick={onOpen}>Menu</span>
             <Drawer
-                size={currentScreen === 'xs' ? 'xs' : 'sm'}
+                size={currentScreen === SCREEN.SIZE.XS ? 'xs' : 'sm'}
                 backdrop="transparent"
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
@@ -25,6 +26,7 @@ const Menu = memo(() => {
                     </DrawerHeader>
                     <DrawerBody>
                         <h1>Menu list</h1>
+                        <button onClick={() => reset()}>Reset</button>
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>

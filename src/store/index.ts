@@ -89,6 +89,10 @@ const useStore = create<AppStore.RootStore>()(
                     layout: { ...createLayoutSlice(set, get, store) },
                     config: { ...createConfigSlice(set, get, store) },
                     editor: { ...createEditorSlice(set, get, store) },
+                    reset: () => {
+                        get().config.reset()
+                        get().editor.reset()
+                    },
                 }))
             ),
             middlewareConfig.persist

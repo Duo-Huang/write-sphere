@@ -26,7 +26,9 @@ declare global {
 
         interface RootState { }
 
-        interface RootActions { }
+        interface RootActions {
+            reset: () => void
+        }
 
         interface RootStore extends RootState, RootActions, SliceStore { }
 

@@ -1,6 +1,6 @@
 import { SCREEN } from '@/config'
 
-const breakpoints = (Object.entries(SCREEN.breakpoint) as [Screen.Breakpoint, PixelValue][])
+const breakpoints = (Object.entries(SCREEN.BREAKPOINT) as [SCREEN.SIZE, PixelValue][])
     .map(([name, value]) => ({
         name,
         value: parseInt(value.replace('px', ''), 10),
