@@ -1,7 +1,7 @@
 import { HeroUIProvider } from '@heroui/react'
-import TopBar from '@/components/Topbar'
-import Content from '@/components/Content'
-import StatusBar from '@/components/StatusBar'
+import TopBar from '@/components/topbar'
+import Content from '@/components/content'
+import StatusBar from '@/components/status-bar'
 
 function App() {
     return (

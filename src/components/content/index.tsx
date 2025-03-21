@@ -1,7 +1,7 @@
 import useStore from '@/store'
-import Editor from './Editor'
-import Preview from './Preview'
-import ModeBar from './ModeBar'
+import Editor from './editor'
+import Preview from './preview'
+import ModeBar from './mode-bar'
 
 const Content = () => {
     const isTopBarVisible = useStore((state) => state.layout.isTopBarVisible)

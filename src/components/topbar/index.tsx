@@ -1,9 +1,9 @@
-import FileExplorer from './FileExplorer'
-import EditorToolbar from './EditorToolbar'
+import FileExplorer from './file-explorer'
+import EditorToolbar from './editor-tool-bar'
 import Icon from '@/components/common/Icon'
-import Menu from './Menu'
+import Menu from './menu'
 import FileName from './FileName'
-import ActionBar from './ActionBar'
+import ActionBar from './action-bar'
 import useStore from '@/store'
 
 const TopBar = () => {
