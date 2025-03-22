@@ -26,7 +26,7 @@ const middlewareConfig: {
         version: Number(import.meta.env.APP_STORE_VERSION) || Date.now(),
         // storage: {
         //     getItem: (key: string) => repository.get(key),
-        //     setItem: (key: string, value: StorageValue<Partial<AppStore.RootStore>>) => repository.set(key, value, true),
+        //     setItem: (key: string, value: StorageValue<AppStore.PersistedStore>) => repository.set(key, value, true),
         //     removeItem: (key: string) => repository.remove(key)
         // },
         partialize: (state) => {
@@ -47,18 +47,18 @@ const middlewareConfig: {
                 }
             }
         },
-        merge: (persistedState, currentState) => {
-
+        merge: (s, currentState) => {
+            const persistedState = s as AppStore.PersistedStore
             if (!persistedState) return currentState
             return {
                 ...currentState,
                 config: {
                     ...currentState.config,
-                    ...(persistedState as Partial<AppStore.RootStore>).config,
+                    ...persistedState.config,
                 },
                 editor: {
                     ...currentState.editor,
-                    ...(persistedState as Partial<AppStore.RootStore>).editor,
+                    ...persistedState.editor,
                 },
             }
         },
@@ -70,7 +70,7 @@ if (import.meta.env.APP_ENABLE_STORE_ENCRYPT === 'true') {
     const repository = module.default
     middlewareConfig.persist.storage = {
         getItem: (key: string) => repository.get(key),
-        setItem: (key: string, value: StorageValue<Partial<AppStore.RootStore>>) => repository.set(key, value, true),
+        setItem: (key: string, value: StorageValue<AppStore.PersistedStore>) => repository.set(key, value, true),
         removeItem: (key: string) => repository.remove(key),
     }
 }
@@ -99,7 +99,7 @@ const useStore = create<AppStore.RootStore>()(
 
 export type Store = typeof useStore
 
-export type StoreWithAutoRun = typeof useStore & {
+type StoreWithAutoRun = Store & {
     autoRun: () => void
 }
 

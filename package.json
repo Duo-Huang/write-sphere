@@ -13,6 +13,9 @@
   },
   "dependencies": {
     "@heroui/react": "^2.7.5",
+    "@milkdown/kit": "^7.6.4",
+    "@milkdown/react": "^7.6.4",
+    "@milkdown/theme-nord": "^7.6.4",
     "crypto-js": "^4.2.0",
     "i18next": "^24.2.2",
     "immer": "^10.1.1",
@@ -38,6 +41,7 @@
     "globals": "^15.15.0",
     "husky": "^9.1.7",
     "postcss": "^8.5.3",
+    "postcss-import": "^16.1.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "3",

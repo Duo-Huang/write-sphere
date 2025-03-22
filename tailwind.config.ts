@@ -1,6 +1,6 @@
 import { heroui } from '@heroui/react'
+import { type Config } from 'tailwindcss'
 
-/** @type {import('tailwindcss').Config} */
 export default {
     content: [
         './index.html',
@@ -9,11 +9,6 @@ export default {
     ],
     theme: {
         extend: {},
-        // colors: {
-        //     'dark-400': '#3C3C3C',
-        //     'dark-600': '#252526',
-        //     'dark-700': '#1E1E1E',
-        // },
         screens: {
             xs: '480px',
             // => @media (min-width: 480px) { ... }
@@ -36,4 +31,4 @@ export default {
     },
     darkMode: 'selector',
     plugins: [heroui()],
-}
+} satisfies Config
