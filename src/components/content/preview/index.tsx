@@ -19,11 +19,13 @@ const MilkdownEditor: React.FC = () => {
     return <Milkdown />
 }
 
-const Preview = memo(() => {
+const Preview = memo(({ className }: { className?: string }) => {
     return (
-        <MilkdownProvider>
-            <MilkdownEditor />
-        </MilkdownProvider>
+        <div className={className}>
+            <MilkdownProvider>
+                <MilkdownEditor />
+            </MilkdownProvider>
+        </div>
     )
 })
 

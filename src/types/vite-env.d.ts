@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
 
+
 interface ImportMetaEnv {
     readonly APP_ENABLE_STORE_ENCRYPT: 'true' | 'false'
     readonly APP_STORE_ENCRYPT_KEY: string
