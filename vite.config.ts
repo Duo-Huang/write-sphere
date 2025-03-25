@@ -1,6 +1,7 @@
 import path from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import tailwindcss from '@tailwindcss/vite'
 import svgr from 'vite-plugin-svgr'
 // import { analyzer } from 'vite-bundle-analyzer'
 import iconTypes from './vite-plugin-icon-types'
@@ -21,6 +22,7 @@ export default defineConfig({
             },
             include: '**/*.svg?react'
         }),
+        tailwindcss(),
         iconTypes(),
         // analyzer()
     ],
