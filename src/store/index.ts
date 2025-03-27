@@ -9,8 +9,7 @@ import {
 } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import createLayoutSlice from './slice/layout'
-import createConfigSlice from './slice/config'
-import createEditorSlice from './slice/editor'
+import createSettingSlice from './slice/setting'
 import autoRun from './autoRun'
 
 const middlewareConfig: {
@@ -31,8 +30,7 @@ const middlewareConfig: {
         // },
         partialize: (state) => {
             return {
-                config: state.config,
-                editor: state.editor,
+                setting: state.setting
             }
         },
         onRehydrateStorage: (state) => {
@@ -52,14 +50,10 @@ const middlewareConfig: {
             if (!persistedState) return currentState
             return {
                 ...currentState,
-                config: {
-                    ...currentState.config,
-                    ...persistedState.config,
-                },
-                editor: {
-                    ...currentState.editor,
-                    ...persistedState.editor,
-                },
+                setting: {
+                    ...currentState.setting,
+                    ...persistedState.setting,
+                }
             }
         },
     },
@@ -83,11 +77,9 @@ const useStore = create<AppStore.RootStore>()(
             subscribeWithSelector(
                 immer((set, get, store) => ({
                     layout: { ...createLayoutSlice(set, get, store) },
-                    config: { ...createConfigSlice(set, get, store) },
-                    editor: { ...createEditorSlice(set, get, store) },
+                    setting: { ...createSettingSlice(set, get, store) },
                     reset: () => {
-                        get().config.reset()
-                        get().editor.reset()
+                        get().setting.reset()
                     },
                 }))
             ),

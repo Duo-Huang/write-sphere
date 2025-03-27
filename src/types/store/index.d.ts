@@ -20,8 +20,7 @@ declare global {
         // Root Store
         interface SliceStore {
             layout: LayoutStore
-            config: ConfigStore
-            editor: EditorStore
+            setting: SettingStore
         }
 
         interface RootState { }
@@ -33,8 +32,7 @@ declare global {
         interface RootStore extends RootState, RootActions, SliceStore { }
 
         interface PersistedStore {
-            config: ConfigStore,
-            editor: EditorStore,
+            setting: SettingStore
         }
 
     }

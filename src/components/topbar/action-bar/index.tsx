@@ -5,9 +5,9 @@ import { SETTING } from '@/config'
 
 const ActionBar = memo(() => {
     const { t } = useTranslation()
-    const setLanguage = useStore((state) => state.config.setLanguage)
-    const setTheme = useStore((state) => state.config.setTheme)
-    const theme = useStore((state) => state.config.theme)
+    const setLanguage = useStore((state) => state.setting.setLanguage)
+    const setTheme = useStore((state) => state.setting.setTheme)
+    const theme = useStore((state) => state.setting.theme)
 
     return (
         <div>
