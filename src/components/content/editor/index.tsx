@@ -1,19 +1,67 @@
-import { memo } from 'react'
+import { memo, useCallback, useMemo } from 'react'
+import CodeMirror from '@uiw/react-codemirror'
+import { EditorView } from '@codemirror/view'
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown'
+import { languages } from '@codemirror/language-data'
+import useStore from '@/store'
+import { SETTING } from '@/config'
+import light from './theme/light'
+import dark from './theme/dark'
+
+const baseStyle = EditorView.baseTheme({
+    '&.cm-theme': {
+        height: '100%',
+    },
+    '&.cm-editor, &.cm-editor *': {
+        'transition-property':
+            'color, background-color, border-color, outline-color, text-decoration-color, fill, stroke',
+        'transition-duration': '0.5s',
+        'transition-timing-function': 'var(--ease-out)', // keep the same as tailwind default
+        'transition-delay': '0s',
+    },
+    '& .cm-gutters': {
+        'border-right': '1px solid transparent',
+    },
+
+    '&.cm-editor.cm-focused': {
+        outline: 'none',
+    },
+
+    '& .cm-cursor': {
+        'border-left': '2px solid transparent',
+    },
+})
+
+const extensions = [baseStyle, EditorView.lineWrapping, markdown({ base: markdownLanguage, codeLanguages: languages })]
 
 const Editor = memo(({ className }: { className?: string }) => {
+    const content = useStore((state) => state.editor.content)
+    const setContent = useStore((state) => state.editor.setContent)
+    const appTheme = useStore((state) => state.setting.theme)
+
+    const isDark = useMemo(() => {
+        return (
+            appTheme === SETTING.THEME.DARK ||
+            (appTheme === SETTING.THEME.SYSTEM && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        )
+    }, [appTheme])
+
+    const handleChange = useCallback(
+        (value: string) => {
+            setContent(value)
+        },
+        [setContent]
+    )
+
     return (
-        <div style={{ height: '2000px' }} className={className}>
-            <h1>Editor</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+        <div className={className}>
+            <CodeMirror
+                autoFocus
+                value={content}
+                extensions={extensions}
+                onChange={handleChange}
+                theme={isDark ? dark : light}
+            />
         </div>
     )
 })

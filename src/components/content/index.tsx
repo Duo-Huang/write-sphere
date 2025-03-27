@@ -14,17 +14,17 @@ const Content = () => {
             className={`fixed inset-x-0 ${isStatusBarVisible ? 'bottom-[20px]' : 'bottom-0'} ${isTopBarVisible ? 'top-[40px]' : 'top-0'} flex bg-neutral-100 duration-500 ease-out dark:bg-neutral-800`}
         >
             <div
-                className={`${isEditorFullScreen ? 'basis-full' : isPreviewFullScreen ? 'basis-0 !p-0' : 'basis-1/2'} overflow-y-auto p-6 duration-500`}
+                className={`@container/editor ${isEditorFullScreen ? 'basis-full' : isPreviewFullScreen ? 'basis-0 !p-0' : 'basis-1/2'} overflow-y-auto p-6 duration-500`}
             >
-                <Editor />
+                <Editor className="p-0 transition-[padding] duration-500 @5xl/editor:px-100" />
             </div>
             <div className="basis-7 bg-stone-200 py-6 duration-500 ease-out dark:bg-neutral-700">
                 <ModeBar />
             </div>
             <div
-                className={`${isPreviewFullScreen ? 'basis-full' : isEditorFullScreen ? 'basis-0 !p-0' : 'basis-1/2'} overflow-y-auto p-6 duration-500`}
+                className={`@container/perview ${isPreviewFullScreen ? 'basis-full' : isEditorFullScreen ? 'basis-0 !p-0' : 'basis-1/2'} overflow-y-auto p-6 duration-500`}
             >
-                <Preview />
+                <Preview className="p-0 transition-[padding] duration-500 @5xl/perview:px-100" />
             </div>
         </div>
     )

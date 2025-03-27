@@ -16,7 +16,7 @@ i18n.use(initReactI18next).init({
             translation: zh,
         },
     },
-    lng: store.getState().config.language,
+    lng: store.getState().setting.language,
     fallbackLng,
     interpolation: {
         escapeValue: false,
@@ -24,7 +24,7 @@ i18n.use(initReactI18next).init({
 })
 
 store.subscribe(
-    (state) => state.config.language,
+    (state) => state.setting.language,
     (lang) => {
         if (lang === SETTING.LANGUAGE.SYSTEM) {
             const language = navigator.language.split('-')[0]

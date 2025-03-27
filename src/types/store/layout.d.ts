@@ -2,7 +2,6 @@ import { SCREEN } from '@/config'
 
 declare global {
     namespace AppStore {
-
         interface LayoutState {
             currentScreen: SCREEN.SIZE
             isTopBarVisible: boolean
@@ -12,8 +11,8 @@ declare global {
             isPreviewFullScreen: boolean
         }
 
-        interface LayoutStore extends LayoutState { }
+        interface LayoutStore extends LayoutState {}
     }
 }
 
-export { }
+export {}

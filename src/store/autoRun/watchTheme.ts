@@ -2,7 +2,7 @@ import { SETTING } from '@/config'
 
 const watchTheme = (store: AppStore.Self) => {
     store.subscribe(
-        (state) => state.config.theme,
+        (state) => state.setting.theme,
         (theme) => {
             window.localStorage.setItem('theme', theme) // used for index.html
 

@@ -9,7 +9,7 @@ import {
 } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 import createLayoutSlice from './slice/layout'
-import createConfigSlice from './slice/config'
+import createSettingSlice from './slice/setting'
 import createEditorSlice from './slice/editor'
 import autoRun from './autoRun'
 
@@ -26,13 +26,12 @@ const middlewareConfig: {
         version: Number(import.meta.env.APP_STORE_VERSION) || Date.now(),
         // storage: {
         //     getItem: (key: string) => repository.get(key),
-        //     setItem: (key: string, value: StorageValue<Partial<AppStore.RootStore>>) => repository.set(key, value, true),
+        //     setItem: (key: string, value: StorageValue<AppStore.PersistedStore>) => repository.set(key, value, true),
         //     removeItem: (key: string) => repository.remove(key)
         // },
         partialize: (state) => {
             return {
-                config: state.config,
-                editor: state.editor,
+                setting: state.setting,
             }
         },
         onRehydrateStorage: (state) => {
@@ -47,18 +46,14 @@ const middlewareConfig: {
                 }
             }
         },
-        merge: (persistedState, currentState) => {
-
+        merge: (s, currentState) => {
+            const persistedState = s as AppStore.PersistedStore
             if (!persistedState) return currentState
             return {
                 ...currentState,
-                config: {
-                    ...currentState.config,
-                    ...(persistedState as Partial<AppStore.RootStore>).config,
-                },
-                editor: {
-                    ...currentState.editor,
-                    ...(persistedState as Partial<AppStore.RootStore>).editor,
+                setting: {
+                    ...currentState.setting,
+                    ...persistedState.setting,
                 },
             }
         },
@@ -70,7 +65,7 @@ if (import.meta.env.APP_ENABLE_STORE_ENCRYPT === 'true') {
     const repository = module.default
     middlewareConfig.persist.storage = {
         getItem: (key: string) => repository.get(key),
-        setItem: (key: string, value: StorageValue<Partial<AppStore.RootStore>>) => repository.set(key, value, true),
+        setItem: (key: string, value: StorageValue<AppStore.PersistedStore>) => repository.set(key, value, true),
         removeItem: (key: string) => repository.remove(key),
     }
 }
@@ -83,11 +78,10 @@ const useStore = create<AppStore.RootStore>()(
             subscribeWithSelector(
                 immer((set, get, store) => ({
                     layout: { ...createLayoutSlice(set, get, store) },
-                    config: { ...createConfigSlice(set, get, store) },
+                    setting: { ...createSettingSlice(set, get, store) },
                     editor: { ...createEditorSlice(set, get, store) },
                     reset: () => {
-                        get().config.reset()
-                        get().editor.reset()
+                        get().setting.reset()
                     },
                 }))
             ),
@@ -99,11 +93,11 @@ const useStore = create<AppStore.RootStore>()(
 
 export type Store = typeof useStore
 
-export type StoreWithAutoRun = typeof useStore & {
+type StoreWithAutoRun = Store & {
     autoRun: () => void
 }
 
-(useStore as StoreWithAutoRun).autoRun = () => {
+;(useStore as StoreWithAutoRun).autoRun = () => {
     autoRun(useStore)
 }
 

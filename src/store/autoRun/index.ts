@@ -1,6 +1,6 @@
 import watchScreen from './watchScreen'
 import watchTheme from './watchTheme'
-import watchEditorMode from './watchEditorMode'
+import watchEditorMode from './watchSetting'
 
 let isRunning = false
 

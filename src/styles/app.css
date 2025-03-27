@@ -1,0 +1,9 @@
+@import "./tailwind.css";
+@import "./milkdown.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.side-panel-height {
+    min-height: calc(100dvh - 100px);
+    height: calc(100dvh - 100px);
+}

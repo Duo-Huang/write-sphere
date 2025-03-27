@@ -20,22 +20,20 @@ declare global {
         // Root Store
         interface SliceStore {
             layout: LayoutStore
-            config: ConfigStore
+            setting: SettingStore
             editor: EditorStore
         }
 
-        interface RootState { }
+        interface RootState {}
 
         interface RootActions {
             reset: () => void
         }
 
-        interface RootStore extends RootState, RootActions, SliceStore { }
+        interface RootStore extends RootState, RootActions, SliceStore {}
 
         interface PersistedStore {
-            config: ConfigStore,
-            editor: EditorStore,
+            setting: SettingStore
         }
-
     }
 }

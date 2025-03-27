@@ -1,6 +1,7 @@
 import path from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import tailwindcss from '@tailwindcss/vite'
 import svgr from 'vite-plugin-svgr'
 // import { analyzer } from 'vite-bundle-analyzer'
 import iconTypes from './vite-plugin-icon-types'
@@ -10,7 +11,7 @@ const pathSrc = path.resolve(__dirname, 'src')
 // https://vite.dev/config/
 export default defineConfig({
     server: {
-        host: '0.0.0.0'
+        host: '0.0.0.0',
     },
 
     plugins: [
@@ -19,8 +20,9 @@ export default defineConfig({
             svgrOptions: {
                 icon: true,
             },
-            include: '**/*.svg?react'
+            include: '**/*.svg?react',
         }),
+        tailwindcss(),
         iconTypes(),
         // analyzer()
     ],
@@ -51,7 +53,6 @@ export default defineConfig({
                 //         return 'vendor-libs';
                 //     }
 
-
                 //     if (id.includes('src/')) {
                 //         return 'main';
                 //     }
@@ -60,7 +61,7 @@ export default defineConfig({
                 chunkFileNames: 'assets/[name]-[hash].js',
                 entryFileNames: 'assets/[name]-[hash].js',
                 assetFileNames: 'assets/[name]-[hash].[ext]',
-            }
-        }
-    }
+            },
+        },
+    },
 })
