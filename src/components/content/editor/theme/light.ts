@@ -1,6 +1,5 @@
-import { xcodeLightInit } from '@uiw/codemirror-theme-xcode';
+import { xcodeLightInit } from '@uiw/codemirror-theme-xcode'
 import colors from 'tailwindcss/colors'
-
 
 const light = xcodeLightInit({
     settings: {
@@ -18,8 +17,7 @@ const light = xcodeLightInit({
         fontFamily: 'var(--font-lxgwwenkai)',
         gutterActiveForeground: colors.rose[800],
         gutterBorder: colors.neutral[300],
-    }
+    },
 })
-
 
 export default light

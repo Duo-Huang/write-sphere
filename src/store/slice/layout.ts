@@ -11,7 +11,7 @@ const initialState: AppStore.LayoutState = {
 
 const createLayoutSlice: AppStore.SliceCreator<AppStore.LayoutStore> = (): AppStore.LayoutStore => {
     return {
-        ...initialState
+        ...initialState,
     }
 }
 

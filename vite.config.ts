@@ -11,7 +11,7 @@ const pathSrc = path.resolve(__dirname, 'src')
 // https://vite.dev/config/
 export default defineConfig({
     server: {
-        host: '0.0.0.0'
+        host: '0.0.0.0',
     },
 
     plugins: [
@@ -20,7 +20,7 @@ export default defineConfig({
             svgrOptions: {
                 icon: true,
             },
-            include: '**/*.svg?react'
+            include: '**/*.svg?react',
         }),
         tailwindcss(),
         iconTypes(),
@@ -53,7 +53,6 @@ export default defineConfig({
                 //         return 'vendor-libs';
                 //     }
 
-
                 //     if (id.includes('src/')) {
                 //         return 'main';
                 //     }
@@ -62,7 +61,7 @@ export default defineConfig({
                 chunkFileNames: 'assets/[name]-[hash].js',
                 entryFileNames: 'assets/[name]-[hash].js',
                 assetFileNames: 'assets/[name]-[hash].[ext]',
-            }
-        }
-    }
+            },
+        },
+    },
 })

@@ -31,7 +31,7 @@ const middlewareConfig: {
         // },
         partialize: (state) => {
             return {
-                setting: state.setting
+                setting: state.setting,
             }
         },
         onRehydrateStorage: (state) => {
@@ -54,7 +54,7 @@ const middlewareConfig: {
                 setting: {
                     ...currentState.setting,
                     ...persistedState.setting,
-                }
+                },
             }
         },
     },
@@ -97,7 +97,7 @@ type StoreWithAutoRun = Store & {
     autoRun: () => void
 }
 
-(useStore as StoreWithAutoRun).autoRun = () => {
+;(useStore as StoreWithAutoRun).autoRun = () => {
     autoRun(useStore)
 }
 

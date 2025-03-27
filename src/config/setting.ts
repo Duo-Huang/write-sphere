@@ -19,4 +19,3 @@ export enum MODE {
     FOCUS = 'focus',
     SYNC_SCROLL = 'sync_scroll',
 }
-

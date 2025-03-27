@@ -8,8 +8,8 @@ declare global {
             setContent: (content: string) => void
         }
 
-        interface EditorStore extends EditorState, EditorActions { }
+        interface EditorStore extends EditorState, EditorActions {}
     }
 }
 
-export { }
+export {}

@@ -1,5 +1,5 @@
 import { SETTING, SCREEN } from '@/config'
-import { calculateBreakpoint } from "@/utils/screen"
+import { calculateBreakpoint } from '@/utils/screen'
 
 const initialState: AppStore.SettingState = {
     theme: SETTING.THEME.SYSTEM,
@@ -30,7 +30,8 @@ const createSettingSlice: AppStore.SliceCreator<AppStore.SettingStore> = (set, g
         },
         setLanguage: (language: AppStore.SettingState['language']) => {
             set(
-                { // exmple for normal set instead of immer, don't use (state) => ({}), will lose typing of set overload
+                {
+                    // exmple for normal set instead of immer, don't use (state) => ({}), will lose typing of set overload
 
                     setting: {
                         ...get().setting,
@@ -42,70 +43,74 @@ const createSettingSlice: AppStore.SliceCreator<AppStore.SettingStore> = (set, g
             )
         },
         setMode: (mode: SETTING.MODE) => {
-            set((state) => {
-                if (mode === SETTING.MODE.REALTIME) {
-                    state.setting._prevMode = SETTING.MODE.REALTIME
-                    state.setting.mode = {
-                        ...state.setting.mode,
-                        [SETTING.MODE.REALTIME]: true,
-                        [SETTING.MODE.EDIT]: false,
-                        [SETTING.MODE.PREVIEW]: false,
+            set(
+                (state) => {
+                    if (mode === SETTING.MODE.REALTIME) {
+                        state.setting._prevMode = SETTING.MODE.REALTIME
+                        state.setting.mode = {
+                            ...state.setting.mode,
+                            [SETTING.MODE.REALTIME]: true,
+                            [SETTING.MODE.EDIT]: false,
+                            [SETTING.MODE.PREVIEW]: false,
+                        }
+                    } else if (mode === SETTING.MODE.EDIT) {
+                        state.setting._prevMode = SETTING.MODE.EDIT
+                        state.setting.mode = {
+                            ...state.setting.mode,
+                            [SETTING.MODE.EDIT]: true,
+                            [SETTING.MODE.REALTIME]: false,
+                            [SETTING.MODE.PREVIEW]: false,
+                        }
+                    } else if (mode === SETTING.MODE.PREVIEW) {
+                        state.setting.mode = {
+                            ...state.setting.mode,
+                            [SETTING.MODE.PREVIEW]: true,
+                            [SETTING.MODE.REALTIME]: false,
+                            [SETTING.MODE.EDIT]: false,
+                        }
+                    } else if (mode === SETTING.MODE.FOCUS) {
+                        state.setting.mode = {
+                            ...state.setting.mode,
+                            [SETTING.MODE.FOCUS]: true,
+                            [SETTING.MODE.HEADLESS]: true,
+                            [SETTING.MODE.FOOTLESS]: true,
+                        }
+                    } else if (mode === SETTING.MODE.HEADLESS) {
+                        state.setting.mode = {
+                            ...state.setting.mode,
+                            [SETTING.MODE.HEADLESS]: true,
+                        }
+                    } else if (mode === SETTING.MODE.FOOTLESS) {
+                        state.setting.mode = {
+                            ...state.setting.mode,
+                            [SETTING.MODE.FOOTLESS]: true,
+                        }
                     }
-                } else if (mode === SETTING.MODE.EDIT) {
-                    state.setting._prevMode = SETTING.MODE.EDIT
-                    state.setting.mode = {
-                        ...state.setting.mode,
-                        [SETTING.MODE.EDIT]: true,
-                        [SETTING.MODE.REALTIME]: false,
-                        [SETTING.MODE.PREVIEW]: false,
-                    }
-                } else if (mode === SETTING.MODE.PREVIEW) {
-                    state.setting.mode = {
-                        ...state.setting.mode,
-                        [SETTING.MODE.PREVIEW]: true,
-                        [SETTING.MODE.REALTIME]: false,
-                        [SETTING.MODE.EDIT]: false,
-                    }
-                } else if (mode === SETTING.MODE.FOCUS) {
-                    state.setting.mode = {
-                        ...state.setting.mode,
-                        [SETTING.MODE.FOCUS]: true,
-                        [SETTING.MODE.HEADLESS]: true,
-                        [SETTING.MODE.FOOTLESS]: true,
-                    }
-                } else if (mode === SETTING.MODE.HEADLESS) {
-                    state.setting.mode = {
-                        ...state.setting.mode,
-                        [SETTING.MODE.HEADLESS]: true,
-                    }
-                } else if (mode === SETTING.MODE.FOOTLESS) {
-                    state.setting.mode = {
-                        ...state.setting.mode,
-                        [SETTING.MODE.FOOTLESS]: true,
-                    }
-                }
-            },
+                },
                 undefined,
                 'setting/setMode'
             )
         },
         toggleMode: (mode: SETTING.MODE) => {
-            set((state) => {
-                state.setting.mode[mode] = !state.setting.mode[mode]
-                if (mode === SETTING.MODE.FOCUS) {
-                    state.setting.mode[SETTING.MODE.HEADLESS] = state.setting.mode[SETTING.MODE.FOCUS]
-                    state.setting.mode[SETTING.MODE.FOOTLESS] = state.setting.mode[SETTING.MODE.FOCUS]
-                } else if (mode === SETTING.MODE.PREVIEW) {
-                    if (state.setting.mode[mode]) { // is preview mode now
-                        state.setting.mode[SETTING.MODE.EDIT] = false
-                        state.setting.mode[SETTING.MODE.REALTIME] = false
-                    } else { // is not preview mode now
-                        state.setting.mode[SETTING.MODE.EDIT] = state.setting._prevMode === SETTING.MODE.EDIT
-                        state.setting.mode[SETTING.MODE.REALTIME] = state.setting._prevMode === SETTING.MODE.REALTIME
+            set(
+                (state) => {
+                    state.setting.mode[mode] = !state.setting.mode[mode]
+                    if (mode === SETTING.MODE.FOCUS) {
+                        state.setting.mode[SETTING.MODE.HEADLESS] = state.setting.mode[SETTING.MODE.FOCUS]
+                        state.setting.mode[SETTING.MODE.FOOTLESS] = state.setting.mode[SETTING.MODE.FOCUS]
+                    } else if (mode === SETTING.MODE.PREVIEW) {
+                        if (state.setting.mode[mode]) {
+                            // is preview mode now
+                            state.setting.mode[SETTING.MODE.EDIT] = false
+                            state.setting.mode[SETTING.MODE.REALTIME] = false
+                        } else {
+                            // is not preview mode now
+                            state.setting.mode[SETTING.MODE.EDIT] = state.setting._prevMode === SETTING.MODE.EDIT
+                            state.setting.mode[SETTING.MODE.REALTIME] =
+                                state.setting._prevMode === SETTING.MODE.REALTIME
+                        }
                     }
-
-                }
-            },
+                },
                 undefined,
                 'setting/toggleMode'
             )

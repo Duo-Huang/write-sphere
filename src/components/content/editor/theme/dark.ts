@@ -1,6 +1,5 @@
-import { xcodeDarkInit } from '@uiw/codemirror-theme-xcode';
+import { xcodeDarkInit } from '@uiw/codemirror-theme-xcode'
 import colors from 'tailwindcss/colors'
-
 
 const dark = xcodeDarkInit({
     settings: {
@@ -19,8 +18,7 @@ const dark = xcodeDarkInit({
         fontFamily: 'var(--font-lxgwwenkai)',
         gutterActiveForeground: colors.lime[300],
         gutterBorder: colors.neutral[700],
-    }
+    },
 })
-
 
 export default dark

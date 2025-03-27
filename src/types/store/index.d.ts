@@ -24,17 +24,16 @@ declare global {
             editor: EditorStore
         }
 
-        interface RootState { }
+        interface RootState {}
 
         interface RootActions {
             reset: () => void
         }
 
-        interface RootStore extends RootState, RootActions, SliceStore { }
+        interface RootStore extends RootState, RootActions, SliceStore {}
 
         interface PersistedStore {
             setting: SettingStore
         }
-
     }
 }
