@@ -10,6 +10,7 @@ import {
 import { immer } from 'zustand/middleware/immer'
 import createLayoutSlice from './slice/layout'
 import createSettingSlice from './slice/setting'
+import createEditorSlice from './slice/editor'
 import autoRun from './autoRun'
 
 const middlewareConfig: {
@@ -78,6 +79,7 @@ const useStore = create<AppStore.RootStore>()(
                 immer((set, get, store) => ({
                     layout: { ...createLayoutSlice(set, get, store) },
                     setting: { ...createSettingSlice(set, get, store) },
+                    editor: { ...createEditorSlice(set, get, store) },
                     reset: () => {
                         get().setting.reset()
                     },

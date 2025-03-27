@@ -12,10 +12,15 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@codemirror/lang-markdown": "^6.3.2",
+    "@codemirror/language-data": "^6.5.1",
+    "@codemirror/view": "^6.36.4",
     "@heroui/react": "2.7.6-beta.2",
     "@milkdown/kit": "^7.6.4",
     "@milkdown/react": "^7.6.4",
     "@milkdown/theme-nord": "^7.6.4",
+    "@uiw/codemirror-theme-xcode": "^4.23.10",
+    "@uiw/react-codemirror": "^4.23.10",
     "crypto-js": "^4.2.0",
     "framer-motion": "^12.5.0",
     "i18next": "^24.2.2",

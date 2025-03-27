@@ -21,6 +21,7 @@ declare global {
         interface SliceStore {
             layout: LayoutStore
             setting: SettingStore
+            editor: EditorStore
         }
 
         interface RootState { }
