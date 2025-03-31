@@ -1,4 +1,4 @@
-import { SETTING, SCREEN } from '@/config'
+import { SETTING, SCREEN } from '@/constants'
 import { calculateBreakpoint } from '@/utils/screen'
 
 const initialState: AppStore.SettingState = {

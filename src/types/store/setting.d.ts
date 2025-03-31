@@ -1,4 +1,4 @@
-import { SETTING } from '@/config'
+import { SETTING } from '@/constants'
 
 declare global {
     namespace AppStore {
@@ -17,6 +17,6 @@ declare global {
             reset: () => void
         }
 
-        interface SettingStore extends SettingState, SettingActions {}
+        interface SettingStore extends SettingState, SettingActions { }
     }
 }

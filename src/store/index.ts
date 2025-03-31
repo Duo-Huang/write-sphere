@@ -11,7 +11,8 @@ import { immer } from 'zustand/middleware/immer'
 import createLayoutSlice from './slice/layout'
 import createSettingSlice from './slice/setting'
 import createEditorSlice from './slice/editor'
-import autoRun from './autoRun'
+import autoRun from './auto-run'
+
 
 const middlewareConfig: {
     devtools: DevtoolsOptions
@@ -20,6 +21,7 @@ const middlewareConfig: {
     devtools: {
         name: 'write-spere-store',
         enabled: import.meta.env.DEV,
+        stateSanitizer: (state: AppStore.RootStore) => state.editor.view ? { ...state, editor: { ...state.editor, view: '<<BIG_OBEJECT>>' } } : state
     },
     persist: {
         name: 'write-spere-store',
@@ -97,8 +99,8 @@ type StoreWithAutoRun = Store & {
     autoRun: () => void
 }
 
-;(useStore as StoreWithAutoRun).autoRun = () => {
-    autoRun(useStore)
-}
+    ; (useStore as StoreWithAutoRun).autoRun = () => {
+        autoRun(useStore)
+    }
 
 export default useStore as StoreWithAutoRun

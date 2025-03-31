@@ -1,4 +1,4 @@
-import { SCREEN } from '@/config'
+import { SCREEN } from '@/constants'
 
 const breakpoints = (Object.entries(SCREEN.BREAKPOINT) as [SCREEN.SIZE, PixelValue][])
     .map(([name, value]) => ({

@@ -1,4 +1,4 @@
-import { SCREEN } from '@/config'
+import { SCREEN } from '@/constants'
 
 const initialState: AppStore.LayoutState = {
     currentScreen: SCREEN.SIZE['2XL'],

@@ -1,4 +1,4 @@
-import { SCREEN } from '@/config'
+import { SCREEN } from '@/constants'
 
 declare global {
     namespace AppStore {
@@ -11,8 +11,8 @@ declare global {
             isPreviewFullScreen: boolean
         }
 
-        interface LayoutStore extends LayoutState {}
+        interface LayoutStore extends LayoutState { }
     }
 }
 
-export {}
+export { }

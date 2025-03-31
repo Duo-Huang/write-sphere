@@ -1,12 +1,13 @@
 import { memo, useCallback, useMemo } from 'react'
-import CodeMirror from '@uiw/react-codemirror'
-import { EditorView } from '@codemirror/view'
+import CodeMirror, { EditorView, type BasicSetupOptions } from '@uiw/react-codemirror'
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown'
 import { languages } from '@codemirror/language-data'
 import useStore from '@/store'
-import { SETTING } from '@/config'
+import { SETTING } from '@/constants'
 import light from './theme/light'
 import dark from './theme/dark'
+import { markdownKeymap, overrideKeymap } from './extensions/keymap'
+import { markdownMath, Highlight } from './syntax'
 
 const baseStyle = EditorView.baseTheme({
     '&.cm-theme': {
@@ -32,12 +33,28 @@ const baseStyle = EditorView.baseTheme({
     },
 })
 
-const extensions = [baseStyle, EditorView.lineWrapping, markdown({ base: markdownLanguage, codeLanguages: languages })]
+const extensions = [
+    baseStyle,
+    EditorView.lineWrapping,
+    markdown({
+        base: markdownLanguage,
+        codeLanguages: languages,
+        extensions: [markdownMath, Highlight],
+    }),
+    overrideKeymap,
+    markdownKeymap,
+]
+
+const basicSetup: BasicSetupOptions = {
+    defaultKeymap: false,
+    lintKeymap: false,
+}
 
 const Editor = memo(({ className }: { className?: string }) => {
     const content = useStore((state) => state.editor.content)
     const setContent = useStore((state) => state.editor.setContent)
     const appTheme = useStore((state) => state.setting.theme)
+    const setView = useStore((state) => state.editor.setView)
 
     const isDark = useMemo(() => {
         return (
@@ -46,12 +63,13 @@ const Editor = memo(({ className }: { className?: string }) => {
         )
     }, [appTheme])
 
-    const handleChange = useCallback(
-        (value: string) => {
-            setContent(value)
-        },
-        [setContent]
-    )
+    const handleChange = useCallback((value: string) => {
+        setContent(value)
+    }, [])
+
+    const onCreateEditor = useCallback((view: EditorView) => {
+        setView(view)
+    }, [])
 
     return (
         <div className={className}>
@@ -60,6 +78,8 @@ const Editor = memo(({ className }: { className?: string }) => {
                 value={content}
                 extensions={extensions}
                 onChange={handleChange}
+                onCreateEditor={onCreateEditor}
+                basicSetup={basicSetup}
                 theme={isDark ? dark : light}
             />
         </div>

@@ -1,7 +1,7 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { default as store } from '@/store'
-import { SETTING } from '@/config'
+import { SETTING } from '@/constants'
 import en from './en'
 import zh from './zh'
 
