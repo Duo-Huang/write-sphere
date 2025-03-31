@@ -76,7 +76,6 @@ export const MARKDOWN_INLINE_FORMATS: CEditor.MarkdownFormat[] = [
         key: 'b',
         modifiers: 'Mod-Shift',
     },
-
 ]
 
 export const MARKDOWN_BLOCK_FORMATS: CEditor.MarkdownFormat[] = [
@@ -135,6 +134,5 @@ export const MARKDOWN_BLOCK_FORMATS: CEditor.MarkdownFormat[] = [
         right: '\n$$',
         key: 'm',
         modifiers: 'Mod-Alt',
-    }
-
+    },
 ]

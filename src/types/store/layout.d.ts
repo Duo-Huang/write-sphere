@@ -11,8 +11,8 @@ declare global {
             isPreviewFullScreen: boolean
         }
 
-        interface LayoutStore extends LayoutState { }
+        interface LayoutStore extends LayoutState {}
     }
 }
 
-export { }
+export {}

@@ -17,6 +17,6 @@ declare global {
             reset: () => void
         }
 
-        interface SettingStore extends SettingState, SettingActions { }
+        interface SettingStore extends SettingState, SettingActions {}
     }
 }

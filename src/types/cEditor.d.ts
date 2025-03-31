@@ -1,6 +1,5 @@
 declare global {
     namespace CEditor {
-
         type MarkdownFormat = {
             name: string
             left: string
@@ -11,4 +10,4 @@ declare global {
     }
 }
 
-export { }
+export {}

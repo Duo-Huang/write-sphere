@@ -1,4 +1,4 @@
-import { type EditorView } from "@uiw/react-codemirror"
+import { type EditorView } from '@uiw/react-codemirror'
 
 const initialState: AppStore.EditorState = {
     view: null,
@@ -23,8 +23,8 @@ const createEditorSlice: AppStore.SliceCreator<AppStore.EditorStore> = (set, get
                 {
                     editor: {
                         ...get().editor,
-                        view
-                    }
+                        view,
+                    },
                 },
                 undefined,
                 'editor/setView'

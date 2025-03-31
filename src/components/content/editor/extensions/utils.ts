@@ -1,6 +1,5 @@
-import { EditorSelection, type EditorState, type EditorView } from "@uiw/react-codemirror"
-import { syntaxTree } from "@codemirror/language"
-
+import { EditorSelection, type EditorState, type EditorView } from '@uiw/react-codemirror'
+import { syntaxTree } from '@codemirror/language'
 
 export function isMakdownContext(state: EditorState) {
     const tree = syntaxTree(state)
@@ -8,13 +7,13 @@ export function isMakdownContext(state: EditorState) {
     const node = tree.resolveInner(pos, 1)
 
     const disallowedContexts = new Set([
-        "CodeBlock",
-        "FencedCode",
-        "InlineCode",
-        "CommentBlock",
-        "Comment",
-        "InlineMath",
-        "MathBlock"
+        'CodeBlock',
+        'FencedCode',
+        'InlineCode',
+        'CommentBlock',
+        'Comment',
+        'InlineMath',
+        'MathBlock',
     ])
 
     let current = node
@@ -52,27 +51,25 @@ export function createMarkdownFormatCommand(format: CEditor.MarkdownFormat) {
             if (hasFormat) {
                 return {
                     changes: [
-                        { from: from - leftLen, to: from, insert: "" },
-                        { from: to, to: to + rightLen, insert: "" }
+                        { from: from - leftLen, to: from, insert: '' },
+                        { from: to, to: to + rightLen, insert: '' },
                     ],
-                    range: EditorSelection.range(anchor - leftLen, head - leftLen)
+                    range: EditorSelection.range(anchor - leftLen, head - leftLen),
                 }
             } else if (isMakdownContext(state)) {
-
                 return {
-                    changes: [{
-                        from,
-                        to,
-                        insert: `${left}${selected}${right}`
-                    }],
-                    range: EditorSelection.range(
-                        anchor + leftLen,
-                        head + leftLen
-                    )
+                    changes: [
+                        {
+                            from,
+                            to,
+                            insert: `${left}${selected}${right}`,
+                        },
+                    ],
+                    range: EditorSelection.range(anchor + leftLen, head + leftLen),
                 }
             }
             return {
-                range: EditorSelection.range(anchor, head)
+                range: EditorSelection.range(anchor, head),
             }
         })
 

@@ -1,4 +1,4 @@
-import { type EditorView } from "@uiw/react-codemirror"
+import { type EditorView } from '@uiw/react-codemirror'
 
 declare global {
     namespace AppStore {
@@ -12,6 +12,6 @@ declare global {
             setView: (view: EditorView) => void
         }
 
-        interface EditorStore extends EditorState, EditorActions { }
+        interface EditorStore extends EditorState, EditorActions {}
     }
 }

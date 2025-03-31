@@ -13,7 +13,6 @@ import createSettingSlice from './slice/setting'
 import createEditorSlice from './slice/editor'
 import autoRun from './auto-run'
 
-
 const middlewareConfig: {
     devtools: DevtoolsOptions
     persist: PersistOptions<AppStore.RootStore, AppStore.PersistedStore>
@@ -21,7 +20,8 @@ const middlewareConfig: {
     devtools: {
         name: 'write-spere-store',
         enabled: import.meta.env.DEV,
-        stateSanitizer: (state: AppStore.RootStore) => state.editor.view ? { ...state, editor: { ...state.editor, view: '<<BIG_OBEJECT>>' } } : state
+        stateSanitizer: (state: AppStore.RootStore) =>
+            state.editor.view ? { ...state, editor: { ...state.editor, view: '<<BIG_OBEJECT>>' } } : state,
     },
     persist: {
         name: 'write-spere-store',
@@ -98,9 +98,8 @@ export type Store = typeof useStore
 type StoreWithAutoRun = Store & {
     autoRun: () => void
 }
-
-    ; (useStore as StoreWithAutoRun).autoRun = () => {
-        autoRun(useStore)
-    }
+;(useStore as StoreWithAutoRun).autoRun = () => {
+    autoRun(useStore)
+}
 
 export default useStore as StoreWithAutoRun
