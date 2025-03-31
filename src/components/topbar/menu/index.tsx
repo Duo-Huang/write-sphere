@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { Drawer, DrawerHeader, DrawerContent, DrawerBody, useDisclosure } from '@heroui/react'
 import useStore from '@/store'
-import { SCREEN } from '@/config'
+import { SCREEN } from '@/constants'
 
 const Menu = memo(() => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure()

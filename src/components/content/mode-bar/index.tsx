@@ -1,5 +1,5 @@
 import Icon from '@/components/common/Icon'
-import { SETTING, SCREEN } from '@/config'
+import { SETTING, SCREEN } from '@/constants'
 import useStore from '@/store'
 import { useEffect } from 'react'
 

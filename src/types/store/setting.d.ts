@@ -1,4 +1,4 @@
-import { SETTING } from '@/config'
+import { SETTING } from '@/constants'
 
 declare global {
     namespace AppStore {

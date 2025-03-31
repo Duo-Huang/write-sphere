@@ -1,4 +1,4 @@
-import { SETTING } from '@/config'
+import { SETTING } from '@/constants'
 
 const watchTheme = (store: AppStore.Self) => {
     store.subscribe(

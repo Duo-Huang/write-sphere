@@ -1,4 +1,4 @@
-import { SCREEN } from '@/config'
+import { SCREEN } from '@/constants'
 
 declare global {
     namespace AppStore {
