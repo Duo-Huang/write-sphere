@@ -72,8 +72,6 @@ if (import.meta.env.APP_ENABLE_STORE_ENCRYPT === 'true') {
     }
 }
 
-console.log('create store')
-
 const useStore = create<AppStore.RootStore>()(
     devtools(
         persist(

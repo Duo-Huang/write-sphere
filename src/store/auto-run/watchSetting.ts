@@ -13,7 +13,7 @@ const watchEditorMode = (store: AppStore.Self) => {
                     isPreviewFullScreen: mode[SETTING.MODE.PREVIEW],
                 },
             })
-            console.log('setting mode', mode)
+            // console.log('setting mode', mode)
         },
         { fireImmediately: true }
     )

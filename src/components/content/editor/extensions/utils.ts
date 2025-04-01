@@ -30,7 +30,6 @@ export function isMakdownContext(state: EditorState) {
 
 export function createMarkdownFormatCommand(format: CEditor.MarkdownFormat) {
     return (view: EditorView) => {
-        debugger
         const state = view.state
         // if (!isMakdownContext(state)) return false
 

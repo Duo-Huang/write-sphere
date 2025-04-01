@@ -5,7 +5,7 @@ import useStore from '@/store'
 const FileExplorer = memo(() => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure()
     const currentScreen = useStore((state) => state.layout.currentScreen)
-    console.log(currentScreen, isOpen)
+
     return (
         <div>
             <Button onPress={onOpen}>File</Button>

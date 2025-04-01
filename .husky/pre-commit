@@ -11,3 +11,7 @@ if git diff --name-only --cached --diff-filter=d | grep -qE 'src/store/'; then
 
     echo "Store version updated to $NEW_STORE_VERSION"
 fi
+
+pnpm format
+
+git add .
