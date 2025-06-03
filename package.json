@@ -17,13 +17,10 @@
         "@codemirror/language": "^6.11.0",
         "@codemirror/language-data": "^6.5.1",
         "@codemirror/legacy-modes": "^6.5.0",
-        "@heroui/react": "2.7.6-beta.2",
+        "@heroui/react": "2.8.0-beta.6",
         "@lezer/common": "^1.2.3",
         "@lezer/highlight": "^1.2.1",
         "@lezer/markdown": "^1.4.2",
-        "@milkdown/kit": "^7.6.4",
-        "@milkdown/react": "^7.6.4",
-        "@milkdown/theme-nord": "^7.6.4",
         "@uiw/codemirror-theme-xcode": "^4.23.10",
         "@uiw/react-codemirror": "^4.23.10",
         "crypto-js": "^4.2.0",
@@ -56,7 +53,7 @@
         "tailwindcss": "^4.0.15",
         "typescript": "~5.7.2",
         "typescript-eslint": "^8.24.1",
-        "vite": "^6.2.2",
+        "vite": "^6.3.5",
         "vite-bundle-analyzer": "^0.17.1",
         "vite-plugin-svgr": "^4.3.0"
     }

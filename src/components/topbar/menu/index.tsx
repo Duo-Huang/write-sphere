@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Drawer, DrawerHeader, DrawerContent, DrawerBody, useDisclosure } from '@heroui/react'
+import { Button, Drawer, DrawerHeader, DrawerContent, DrawerBody, useDisclosure } from '@heroui/react'
 import useStore from '@/store'
 import { SCREEN } from '@/constants'
 
@@ -9,7 +9,9 @@ const Menu = memo(() => {
     const reset = useStore((state) => state.reset)
     return (
         <div>
-            <span onClick={onOpen}>Menu</span>
+            <Button radius="none" onPress={onOpen} className="bg-transparent">
+                Menu
+            </Button>
             <Drawer
                 size={currentScreen === SCREEN.SIZE.XS ? 'xs' : 'sm'}
                 backdrop="transparent"
