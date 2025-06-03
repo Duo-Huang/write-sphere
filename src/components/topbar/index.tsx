@@ -2,7 +2,7 @@ import FileExplorer from './file-explorer'
 import EditorToolbar from './editor-tool-bar'
 import Icon from '@/components/common/icon'
 import Menu from './menu'
-import FileName from './FileName'
+import FileName from './file-name'
 import ActionBar from './action-bar'
 import useStore from '@/store'
 

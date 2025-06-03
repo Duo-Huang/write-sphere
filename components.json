@@ -11,10 +11,10 @@
         "prefix": ""
     },
     "aliases": {
-        "components": "@/components",
-        "utils": "@/lib/utils",
-        "ui": "@/components/ui",
-        "lib": "@/lib",
+        "components": "@/components/content/preview/rt-editor",
+        "utils": "@/components/content/preview/rt-editor/lib/utils",
+        "ui": "@/components/content/preview/rt-editor/ui",
+        "lib": "@/components/content/preview/rt-editor/lib",
         "hooks": "@/hooks"
     },
     "iconLibrary": "lucide"
