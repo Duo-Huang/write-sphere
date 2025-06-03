@@ -1,4 +1,4 @@
-import Icon from '@/components/common/Icon'
+import Icon from '@/components/common/icon'
 import { SETTING, SCREEN } from '@/constants'
 import useStore from '@/store'
 import { useEffect } from 'react'

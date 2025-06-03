@@ -1,5 +1,5 @@
 import useStore from '@/store'
-import Editor from './editor'
+import CmEditor from './cm-editor'
 import Preview from './preview'
 import ModeBar from './mode-bar'
 
@@ -16,7 +16,7 @@ const Content = () => {
             <div
                 className={`@container/editor ${isEditorFullScreen ? 'basis-full' : isPreviewFullScreen ? 'basis-0 !p-0' : 'basis-1/2'} overflow-y-auto p-6 duration-500`}
             >
-                <Editor className="p-0 transition-[padding] duration-500 @5xl/editor:px-100" />
+                <CmEditor className="p-0 transition-[padding] duration-500 @5xl/editor:px-100" />
             </div>
             <div className="basis-7 bg-stone-200 py-6 duration-500 ease-out dark:bg-neutral-700">
                 <ModeBar />

@@ -21,7 +21,7 @@ const middlewareConfig: {
         name: 'write-spere-store',
         enabled: import.meta.env.DEV,
         stateSanitizer: (state: AppStore.RootStore) =>
-            state.editor.view ? { ...state, editor: { ...state.editor, view: '<<EDITOR_VIEW_INSTANCE>>' } } : state,
+            state.editor.cmView ? { ...state, editor: { ...state.editor, cmView: '<<EDITOR_VIEW_INSTANCE>>' } } : state,
     },
     persist: {
         name: 'write-spere-store',
@@ -96,7 +96,6 @@ export type Store = typeof useStore
 type StoreWithAutoRun = Store & {
     autoRun: () => void
 }
-
 ;(useStore as StoreWithAutoRun).autoRun = () => {
     autoRun(useStore)
 }

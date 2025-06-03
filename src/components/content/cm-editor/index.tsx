@@ -2,6 +2,7 @@ import { memo, useCallback, useMemo } from 'react'
 import CodeMirror, { EditorView, type BasicSetupOptions } from '@uiw/react-codemirror'
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown'
 import { languages } from '@codemirror/language-data'
+import { debounce } from 'throttle-debounce'
 import useStore from '@/store'
 import { SETTING } from '@/constants'
 import light from './theme/light'
@@ -50,11 +51,11 @@ const basicSetup: BasicSetupOptions = {
     lintKeymap: false,
 }
 
-const Editor = memo(({ className }: { className?: string }) => {
+const CmEditor = memo(({ className }: { className?: string }) => {
     const content = useStore((state) => state.editor.content)
     const setContent = useStore((state) => state.editor.setContent)
     const appTheme = useStore((state) => state.setting.theme)
-    const setView = useStore((state) => state.editor.setView)
+    const setCmView = useStore((state) => state.editor.setCmView)
 
     const isDark = useMemo(() => {
         return (
@@ -63,12 +64,10 @@ const Editor = memo(({ className }: { className?: string }) => {
         )
     }, [appTheme])
 
-    const handleChange = useCallback((value: string) => {
-        setContent(value)
-    }, [])
+    const handleChange = useMemo(() => debounce(300, (value: string) => setContent(value)), [setContent])
 
     const onCreateEditor = useCallback((view: EditorView) => {
-        setView(view)
+        setCmView(view)
     }, [])
 
     return (
@@ -86,4 +85,4 @@ const Editor = memo(({ className }: { className?: string }) => {
     )
 })
 
-export default Editor
+export default CmEditor

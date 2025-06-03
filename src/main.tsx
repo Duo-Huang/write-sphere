@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { default as store } from '@/store'
 import '@/locales/i18n'
 import '@/styles/app.css'
-import App from '@/App.tsx'
+import App from '@/app'
 
 store.autoRun()
 
