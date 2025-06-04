@@ -7,7 +7,7 @@ import { type TCodeBlockElement, formatCodeBlock, isLangSupported } from '@udeco
 import { type PlateElementProps, PlateElement } from '@udecode/plate/react'
 import { BracesIcon, CheckIcon, CopyIcon } from 'lucide-react'
 
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
+import { Button } from './button'
 
 import { CodeBlockCombobox } from './code-block-combobox'
 

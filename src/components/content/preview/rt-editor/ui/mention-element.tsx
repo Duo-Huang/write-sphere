@@ -8,7 +8,7 @@ import type { PlateElementProps } from '@udecode/plate/react'
 import { IS_APPLE } from '@udecode/plate'
 import { PlateElement, useFocused, useReadOnly, useSelected } from '@udecode/plate/react'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { cn } from '../lib/utils'
 import { useMounted } from '@/hooks/use-mounted'
 
 export function MentionElement(

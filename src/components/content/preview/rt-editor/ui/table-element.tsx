@@ -50,9 +50,9 @@ import {
     DropdownMenuItem,
     DropdownMenuPortal,
     DropdownMenuTrigger,
-} from '@/components/content/preview/rt-editor/ui/dropdown-menu'
-import { Popover, PopoverContent } from '@/components/content/preview/rt-editor/ui/popover'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+} from './dropdown-menu'
+import { Popover, PopoverContent } from './popover'
+import { cn } from '../lib/utils'
 
 import { DEFAULT_COLORS } from './color-constants'
 import { ColorDropdownMenuItems } from './color-dropdown-menu-items'

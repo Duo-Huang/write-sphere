@@ -9,10 +9,10 @@ import { useEditorPlugin, useHotkeys, usePluginOption } from '@udecode/plate/rea
 import { Command as CommandPrimitive } from 'cmdk'
 import { Loader2Icon } from 'lucide-react'
 
-import { Command, CommandList } from '@/components/content/preview/rt-editor/ui/command'
-import { Popover, PopoverAnchor, PopoverContent } from '@/components/content/preview/rt-editor/ui/popover'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
-import { useChat } from '@/components/content/preview/rt-editor/use-chat'
+import { Command, CommandList } from './command'
+import { Popover, PopoverAnchor, PopoverContent } from './popover'
+import { cn } from '../lib/utils'
+import { useChat } from '../use-chat'
 
 import { AIChatEditor } from './ai-chat-editor'
 import { AIMenuItems } from './ai-menu-items'

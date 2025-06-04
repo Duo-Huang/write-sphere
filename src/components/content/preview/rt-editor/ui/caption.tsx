@@ -13,8 +13,8 @@ import {
 } from '@udecode/plate-caption/react'
 import { cva } from 'class-variance-authority'
 
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { Button } from './button'
+import { cn } from '../lib/utils'
 
 const captionVariants = cva('max-w-full', {
     defaultVariants: {

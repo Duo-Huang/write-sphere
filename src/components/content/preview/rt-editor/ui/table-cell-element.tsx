@@ -15,7 +15,7 @@ import {
 import { PlateElement, useEditorPlugin, useElementSelector, usePluginOption, useReadOnly } from '@udecode/plate/react'
 import { cva } from 'class-variance-authority'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { cn } from '../lib/utils'
 
 import { blockSelectionVariants } from './block-selection'
 import { ResizeHandle } from './resize-handle'

@@ -7,8 +7,8 @@ const StatusBar = () => {
     const isStatusBarVisible = useStore((state) => state.layout.isStatusBarVisible)
     const isEditorFullScreen = useStore((state) => state.layout.isEditorFullScreen)
     const isPreviewFullScreen = useStore((state) => state.layout.isPreviewFullScreen)
-    const editorView = useStore((state) => state.editor.view)
-    const editorState = useStore((state) => state.editor.view?.state)
+    const editorView = useStore((state) => state.editor.cmView)
+    const editorState = useStore((state) => state.editor.cmView?.state)
 
     const [, forceUpdate] = useState<object | null>(null)
 

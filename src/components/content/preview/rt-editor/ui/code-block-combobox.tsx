@@ -7,17 +7,10 @@ import type { TCodeBlockElement } from '@udecode/plate-code-block'
 import { useEditorRef, useElement, useReadOnly } from '@udecode/plate/react'
 import { Check } from 'lucide-react'
 
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
-import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-} from '@/components/content/preview/rt-editor/ui/command'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/content/preview/rt-editor/ui/popover'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { Button } from './button'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './command'
+import { Popover, PopoverContent, PopoverTrigger } from './popover'
+import { cn } from '../lib/utils'
 
 const languages: { label: string; value: string }[] = [
     { label: 'Auto', value: 'auto' },

@@ -2,7 +2,7 @@
 
 import { BlockMenuPlugin } from '@udecode/plate-selection/react'
 
-import { BlockContextMenu } from '@/components/content/preview/rt-editor/ui/block-context-menu'
+import { BlockContextMenu } from '../ui/block-context-menu'
 
 import { blockSelectionPlugins } from './block-selection-plugins'
 

@@ -5,7 +5,7 @@ import type { TMentionElement } from '@udecode/plate-mention'
 
 import { IS_APPLE, SlateElement } from '@udecode/plate'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { cn } from '../lib/utils'
 
 export function MentionElementStatic(
     props: SlateElementProps<TMentionElement> & {

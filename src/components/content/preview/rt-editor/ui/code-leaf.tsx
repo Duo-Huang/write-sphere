@@ -1,7 +1,5 @@
 'use client'
 
-import * as React from 'react'
-
 import type { PlateLeafProps } from '@udecode/plate/react'
 
 import { PlateLeaf } from '@udecode/plate/react'

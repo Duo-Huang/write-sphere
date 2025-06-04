@@ -1,7 +1,5 @@
 'use client'
 
-import * as React from 'react'
-
 import type { TLinkElement } from '@udecode/plate-link'
 import type { PlateElementProps } from '@udecode/plate/react'
 

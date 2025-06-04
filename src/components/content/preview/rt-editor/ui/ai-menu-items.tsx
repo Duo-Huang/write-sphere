@@ -22,7 +22,7 @@ import {
     X,
 } from 'lucide-react'
 
-import { CommandGroup, CommandItem } from '@/components/content/preview/rt-editor/ui/command'
+import { CommandGroup, CommandItem } from './command'
 
 export type EditorChatState = 'cursorCommand' | 'cursorSuggestion' | 'selectionCommand' | 'selectionSuggestion'
 

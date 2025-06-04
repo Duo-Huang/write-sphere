@@ -21,9 +21,9 @@ import {
 import { cva } from 'class-variance-authority'
 import { Link, Trash2Icon } from 'lucide-react'
 
-import { Button, buttonVariants } from '@/components/content/preview/rt-editor/ui/button'
-import { Popover, PopoverAnchor, PopoverContent } from '@/components/content/preview/rt-editor/ui/popover'
-import { Separator } from '@/components/content/preview/rt-editor/ui/separator'
+import { Button, buttonVariants } from './button'
+import { Popover, PopoverAnchor, PopoverContent } from './popover'
+import { Separator } from './separator'
 
 import { CaptionButton } from './caption'
 

@@ -7,8 +7,8 @@ import type { TSuggestionData } from '@udecode/plate-suggestion'
 import { type RenderNodeWrapper, usePluginOption } from '@udecode/plate/react'
 import { CornerDownLeftIcon } from 'lucide-react'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
-import { type SuggestionConfig, suggestionPlugin } from '@/components/content/preview/rt-editor/suggestion-plugin'
+import { cn } from '../lib/utils'
+import { type SuggestionConfig, suggestionPlugin } from '../plugins/suggestion-plugin'
 
 export const SuggestionBelowNodes: RenderNodeWrapper<SuggestionConfig> = ({ api, element }) => {
     if (!api.suggestion.isBlockSuggestion(element)) return

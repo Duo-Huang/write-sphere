@@ -4,8 +4,8 @@ import { type ExtendConfig, type Path, isSlateEditor, isSlateElement, isSlateStr
 import { type BaseSuggestionConfig, BaseSuggestionPlugin } from '@udecode/plate-suggestion'
 import { toTPlatePlugin } from '@udecode/plate/react'
 
-import { discussionPlugin } from '@/components/content/preview/rt-editor/plugins/discussion-plugin'
-import { BlockSuggestion } from '@/components/content/preview/rt-editor/ui/block-suggestion'
+import { discussionPlugin } from './discussion-plugin'
+import { BlockSuggestion } from '../ui/block-suggestion'
 
 export type SuggestionConfig = ExtendConfig<
     BaseSuggestionConfig,

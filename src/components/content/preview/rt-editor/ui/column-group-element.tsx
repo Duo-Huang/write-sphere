@@ -10,9 +10,9 @@ import { useDebouncePopoverOpen } from '@udecode/plate-layout/react'
 import { PlateElement, useEditorRef, useElement, useReadOnly, useRemoveNodeButton } from '@udecode/plate/react'
 import { type LucideProps, Trash2Icon } from 'lucide-react'
 
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
-import { Popover, PopoverAnchor, PopoverContent } from '@/components/content/preview/rt-editor/ui/popover'
-import { Separator } from '@/components/content/preview/rt-editor/ui/separator'
+import { Button } from './button'
+import { Popover, PopoverAnchor, PopoverContent } from './popover'
+import { Separator } from './separator'
 
 export function ColumnGroupElement(props: PlateElementProps) {
     return (

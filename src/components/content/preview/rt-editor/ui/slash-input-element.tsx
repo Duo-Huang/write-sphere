@@ -37,7 +37,7 @@ import {
     TableOfContentsIcon,
 } from 'lucide-react'
 
-import { insertBlock, insertInlineElement } from '@/components/content/preview/rt-editor/transforms'
+import { insertBlock, insertInlineElement } from '../transforms'
 
 import {
     InlineCombobox,

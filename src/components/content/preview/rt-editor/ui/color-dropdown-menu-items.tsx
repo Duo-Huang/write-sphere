@@ -4,15 +4,10 @@ import * as React from 'react'
 
 import type { DropdownMenuItemProps } from '@radix-ui/react-dropdown-menu'
 
-import { buttonVariants } from '@/components/content/preview/rt-editor/ui/button'
-import { DropdownMenuItem } from '@/components/content/preview/rt-editor/ui/dropdown-menu'
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from '@/components/content/preview/rt-editor/ui/tooltip'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { buttonVariants } from './button'
+import { DropdownMenuItem } from './dropdown-menu'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip'
+import { cn } from '../lib/utils'
 
 export type TColor = {
     isBrightColor: boolean

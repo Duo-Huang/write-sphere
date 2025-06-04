@@ -1,10 +1,8 @@
-import * as React from 'react'
-
 import { type SlateElementProps, SlateElement } from '@udecode/plate'
 import { type TEquationElement, getEquationHtml } from '@udecode/plate-math'
 import { RadicalIcon } from 'lucide-react'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { cn } from '../lib/utils'
 
 export function EquationElementStatic(props: SlateElementProps<TEquationElement>) {
     const { element } = props

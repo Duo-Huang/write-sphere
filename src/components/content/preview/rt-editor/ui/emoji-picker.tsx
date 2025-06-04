@@ -1,12 +1,10 @@
 'use client'
 
-import * as React from 'react'
-
 import type { UseEmojiPickerType } from '@udecode/plate-emoji/react'
 
 import { EmojiSettings } from '@udecode/plate-emoji'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { cn } from '../lib/utils'
 
 import { EmojiPickerContent } from './emoji-picker-content'
 import { EmojiPickerNavigation } from './emoji-picker-navigation'

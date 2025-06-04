@@ -26,10 +26,10 @@ import {
 import { useReadOnly, useSelected } from '@udecode/plate/react'
 import { GripVertical } from 'lucide-react'
 
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/content/preview/rt-editor/ui/tooltip'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
-import { STRUCTURAL_TYPES } from '@/components/content/preview/rt-editor/transforms'
+import { Button } from './button'
+import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip'
+import { cn } from '../lib/utils'
+import { STRUCTURAL_TYPES } from '../transforms'
 
 const UNDRAGGABLE_KEYS = [ColumnItemPlugin.key, TableRowPlugin.key, TableCellPlugin.key]
 

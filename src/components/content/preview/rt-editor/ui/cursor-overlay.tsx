@@ -1,13 +1,11 @@
 'use client'
 
-import * as React from 'react'
-
 import { RangeApi } from '@udecode/plate'
 import { AIChatPlugin } from '@udecode/plate-ai/react'
 import { type CursorData, type CursorOverlayState, useCursorOverlay } from '@udecode/plate-selection/react'
 import { usePluginOption } from '@udecode/plate/react'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { cn } from '../lib/utils'
 
 export function Cursor({ id, caretPosition, data, selection, selectionRects }: CursorOverlayState<CursorData>) {
     const streaming = usePluginOption(AIChatPlugin, 'streaming')

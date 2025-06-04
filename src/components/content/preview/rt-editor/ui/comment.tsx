@@ -9,17 +9,17 @@ import { Plate, useEditorPlugin, useEditorRef, usePluginOption } from '@udecode/
 import { differenceInDays, differenceInHours, differenceInMinutes, format } from 'date-fns'
 import { CheckIcon, MoreHorizontalIcon, PencilIcon, TrashIcon, XIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/content/preview/rt-editor/ui/avatar'
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
+import { Avatar, AvatarFallback, AvatarImage } from './avatar'
+import { Button } from './button'
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from '@/components/content/preview/rt-editor/ui/dropdown-menu'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
-import { discussionPlugin } from '@/components/content/preview/rt-editor/discussion-plugin'
+} from './dropdown-menu'
+import { cn } from '../lib/utils'
+import { discussionPlugin } from '../plugins/discussion-plugin'
 
 import { useCommentEditor } from './comment-create-form'
 import { Editor, EditorContainer } from './editor'

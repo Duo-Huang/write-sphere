@@ -21,7 +21,7 @@ const ModeBar = () => {
                 setMode(SETTING.MODE.EDIT)
             }
         }
-    }, [currentScreen])
+    }, [currentScreen, setMode, mode])
 
     const toggleEditMode = () => {
         if (mode[SETTING.MODE.EDIT]) {

@@ -9,8 +9,8 @@ import { useEquationElement } from '@udecode/plate-math/react'
 import { PlateElement, useSelected } from '@udecode/plate/react'
 import { RadicalIcon } from 'lucide-react'
 
-import { Popover, PopoverTrigger } from '@/components/content/preview/rt-editor/ui/popover'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { Popover, PopoverTrigger } from './popover'
+import { cn } from '../lib/utils'
 
 import { EquationPopoverContent } from './equation-popover'
 

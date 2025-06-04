@@ -23,11 +23,11 @@ import { Plate, useEditorRef, usePluginOption } from '@udecode/plate/react'
 import { type CreatePlateEditorOptions, PlateLeaf } from '@udecode/plate/react'
 import { ArrowUpIcon } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/content/preview/rt-editor/ui/avatar'
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
-import { type TDiscussion, discussionPlugin } from '@/components/content/preview/rt-editor/discussion-plugin'
-import { useCreateEditor } from '@/components/content/preview/rt-editor/use-create-editor'
+import { Avatar, AvatarFallback, AvatarImage } from './avatar'
+import { Button } from './button'
+import { cn } from '../lib/utils'
+import { type TDiscussion, discussionPlugin } from '../plugins/discussion-plugin'
+import { useCreateEditor } from '../use-create-editor'
 
 import type { TComment } from './comment'
 

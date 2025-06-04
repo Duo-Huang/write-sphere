@@ -10,9 +10,9 @@ import { BlockSelectionPlugin } from '@udecode/plate-selection/react'
 import { createPrimitiveComponent, useEditorRef, useElement, useReadOnly } from '@udecode/plate/react'
 import { CornerDownLeftIcon } from 'lucide-react'
 
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
-import { PopoverContent } from '@/components/content/preview/rt-editor/ui/popover'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { Button } from './button'
+import { PopoverContent } from './popover'
+import { cn } from '../lib/utils'
 
 const EquationInput = createPrimitiveComponent(TextareaAutosize)({
     propsHook: useEquationInput,
@@ -45,7 +45,7 @@ const EquationPopoverContent = ({
         setOpen(false)
 
         if (isInline) {
-            editor.tf.select(element, { focus: true, next: true })
+            editor.tf.select(element, { next: true })
         } else {
             editor.getApi(BlockSelectionPlugin).blockSelection.set(element.id as string)
         }

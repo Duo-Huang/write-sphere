@@ -66,9 +66,12 @@ const CmEditor = memo(({ className }: { className?: string }) => {
 
     const handleChange = useMemo(() => debounce(300, (value: string) => setContent(value)), [setContent])
 
-    const onCreateEditor = useCallback((view: EditorView) => {
-        setCmView(view)
-    }, [])
+    const onCreateEditor = useCallback(
+        (view: EditorView) => {
+            setCmView(view)
+        },
+        [setCmView]
+    )
 
     return (
         <div className={className}>

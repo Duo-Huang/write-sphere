@@ -19,8 +19,8 @@ import {
 } from '@udecode/plate/react'
 import { GripVertical } from 'lucide-react'
 
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { Button } from './button'
+import { cn } from '../lib/utils'
 
 export function TableRowElement(props: PlateElementProps<TTableRowElement>) {
     const { element } = props

@@ -16,9 +16,9 @@ import { SlashPlugin } from '@udecode/plate-slash-command/react'
 import { TogglePlugin } from '@udecode/plate-toggle/react'
 import { TrailingBlockPlugin } from '@udecode/plate-trailing-block'
 
-import { FixedToolbarPlugin } from '@/components/content/preview/rt-editor/editor/plugins/fixed-toolbar-plugin'
-import { FloatingToolbarPlugin } from '@/components/content/preview/rt-editor/editor/plugins/floating-toolbar-plugin'
-import { SuggestionBelowNodes } from '@/components/content/preview/rt-editor/ui/suggestion-line-break'
+import { FixedToolbarPlugin } from './fixed-toolbar-plugin'
+import { FloatingToolbarPlugin } from './floating-toolbar-plugin'
+import { SuggestionBelowNodes } from '../ui/suggestion-line-break'
 
 import { aiPlugins } from './ai-plugins'
 import { alignPlugin } from './align-plugin'

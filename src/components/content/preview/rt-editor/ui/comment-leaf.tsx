@@ -1,15 +1,13 @@
 'use client'
 
-import * as React from 'react'
-
 import type { TCommentText } from '@udecode/plate-comments'
 import type { PlateLeafProps } from '@udecode/plate/react'
 
 import { getCommentCount } from '@udecode/plate-comments'
 import { PlateLeaf, useEditorPlugin, usePluginOption } from '@udecode/plate/react'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
-import { commentsPlugin } from '@/components/content/preview/rt-editor/comments-plugin'
+import { cn } from '../lib/utils'
+import { commentsPlugin } from '../plugins/comments-plugin'
 
 export function CommentLeaf(props: PlateLeafProps<TCommentText>) {
     const { children, leaf } = props

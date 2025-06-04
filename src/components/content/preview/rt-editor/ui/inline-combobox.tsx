@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import type { Point, TElement } from '@udecode/plate'
+import type { PointRef, TElement } from '@udecode/plate'
 
 import {
     type ComboboxItemProps,
@@ -22,7 +22,7 @@ import { type UseComboboxInputResult, useComboboxInput, useHTMLInputCursorState 
 import { useComposedRef, useEditorRef } from '@udecode/plate/react'
 import { cva } from 'class-variance-authority'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { cn } from '../lib/utils'
 
 type FilterFn = (
     item: { value: string; group?: string; keywords?: string[]; label?: string },
@@ -93,7 +93,7 @@ const InlineCombobox = ({
      * Track the point just before the input element so we know where to
      * insertText if the combobox closes due to a selection change.
      */
-    const insertPoint = React.useRef<Point | null>(null)
+    const [insertPoint, setInsertPoint] = React.useState<PointRef | null>(null)
 
     React.useEffect(() => {
         const path = editor.api.findPath(element)
@@ -105,7 +105,7 @@ const InlineCombobox = ({
         if (!point) return
 
         const pointRef = editor.api.pointRef(point)
-        insertPoint.current = pointRef.current
+        setInsertPoint(pointRef)
 
         return () => {
             pointRef.unref()

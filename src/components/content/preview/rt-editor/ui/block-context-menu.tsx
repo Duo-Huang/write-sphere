@@ -18,7 +18,7 @@ import {
     ContextMenuSubContent,
     ContextMenuSubTrigger,
     ContextMenuTrigger,
-} from '@/components/content/preview/rt-editor/ui/context-menu'
+} from './context-menu'
 import { useIsTouchDevice } from '@/hooks/use-is-touch-device'
 
 type Value = 'askAI' | null

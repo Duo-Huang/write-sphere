@@ -45,8 +45,8 @@ import {
 import { usePlateEditor } from '@udecode/plate/react'
 import { all, createLowlight } from 'lowlight'
 
-import { markdownPlugin } from '@/components/content/preview/rt-editor/markdown-plugin'
-import { TodoLiStatic, TodoMarkerStatic } from '@/components/content/preview/rt-editor/ui/indent-todo-marker-static'
+import { markdownPlugin } from '../plugins/markdown-plugin'
+import { TodoLiStatic, TodoMarkerStatic } from './indent-todo-marker-static'
 
 import { BlockquoteElementStatic } from './blockquote-element-static'
 import { CalloutElementStatic } from './callout-element-static'

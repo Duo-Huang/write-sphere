@@ -1,14 +1,9 @@
 import type { EmojiCategoryList } from '@udecode/plate-emoji'
 import type { UseEmojiPickerType } from '@udecode/plate-emoji/react'
 
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from '@/components/content/preview/rt-editor/ui/tooltip'
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { Button } from './button'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip'
+import { cn } from '../lib/utils'
 
 export type EmojiPickerNavigationProps = {
     onClick: (id: EmojiCategoryList) => void

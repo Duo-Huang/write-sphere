@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { cn } from '../lib/utils'
 
 import { Toolbar } from './toolbar'
 

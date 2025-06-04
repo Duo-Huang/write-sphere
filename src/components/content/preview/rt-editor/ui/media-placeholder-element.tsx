@@ -18,7 +18,7 @@ import { PlateElement, useEditorPlugin, withHOC } from '@udecode/plate/react'
 import { AudioLines, FileUp, Film, ImageIcon, Loader2Icon } from 'lucide-react'
 import { useFilePicker } from 'use-file-picker'
 
-import { cn } from '@/components/content/preview/rt-editor/lib/utils'
+import { cn } from '../lib/utils'
 import { useUploadFile } from '@/hooks/use-upload-file'
 
 const CONTENT: Record<

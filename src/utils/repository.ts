@@ -37,7 +37,7 @@ class Repository {
     }
 
     // expire unit is s
-    public set(key: string, value: RepositoryValue<any>['value'], rewrite = false, expire?: number): boolean {
+    public set(key: string, value: RepositoryValue<unknown>['value'], rewrite = false, expire?: number): boolean {
         if (value === '' || value === null || value === undefined) {
             value = null
         }
@@ -46,7 +46,7 @@ class Repository {
             return false
         }
 
-        let data: RepositoryValue<any> = {
+        const data: RepositoryValue<unknown> = {
             value,
             time: Date.now(),
             expire: Repository.config.expire,

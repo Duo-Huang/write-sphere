@@ -12,16 +12,11 @@ import { SuggestionPlugin } from '@udecode/plate-suggestion/react'
 import { useEditorPlugin, useEditorRef, usePluginOption } from '@udecode/plate/react'
 import { MessageSquareTextIcon, MessagesSquareIcon, PencilLineIcon } from 'lucide-react'
 
-import { Button } from '@/components/content/preview/rt-editor/ui/button'
-import {
-    Popover,
-    PopoverAnchor,
-    PopoverContent,
-    PopoverTrigger,
-} from '@/components/content/preview/rt-editor/ui/popover'
-import { commentsPlugin } from '@/components/content/preview/rt-editor/comments-plugin'
-import { type TDiscussion, discussionPlugin } from '@/components/content/preview/rt-editor/discussion-plugin'
-import { suggestionPlugin } from '@/components/content/preview/rt-editor/suggestion-plugin'
+import { Button } from './button'
+import { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from './popover'
+import { commentsPlugin } from '../plugins/comments-plugin'
+import { type TDiscussion, discussionPlugin } from '../plugins/discussion-plugin'
+import { suggestionPlugin } from '../plugins/suggestion-plugin'
 
 import { BlockSuggestionCard, isResolvedSuggestion, useResolveSuggestion } from './block-suggestion'
 import { Comment } from './comment'
