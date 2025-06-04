@@ -8,7 +8,7 @@ import type { PlateLeafProps } from '@udecode/plate/react'
 import { PlateLeaf, useEditorPlugin, usePluginOption } from '@udecode/plate/react'
 
 import { cn } from '@/components/content/preview/rt-editor/lib/utils'
-import { suggestionPlugin } from '@/components/content/preview/rt-editor/plugins/suggestion-plugin'
+import { suggestionPlugin } from '@/components/content/preview/rt-editor/suggestion-plugin'
 
 export function SuggestionLeaf(props: PlateLeafProps<TSuggestionText>) {
     const { api, setOption } = useEditorPlugin(suggestionPlugin)

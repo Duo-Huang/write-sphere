@@ -9,7 +9,7 @@ import { getCommentCount } from '@udecode/plate-comments'
 import { PlateLeaf, useEditorPlugin, usePluginOption } from '@udecode/plate/react'
 
 import { cn } from '@/components/content/preview/rt-editor/lib/utils'
-import { commentsPlugin } from '@/components/content/preview/rt-editor/plugins/comments-plugin'
+import { commentsPlugin } from '@/components/content/preview/rt-editor/comments-plugin'
 
 export function CommentLeaf(props: PlateLeafProps<TCommentText>) {
     const { children, leaf } = props

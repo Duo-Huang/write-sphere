@@ -26,7 +26,7 @@ import { ArrowUpIcon } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/content/preview/rt-editor/ui/avatar'
 import { Button } from '@/components/content/preview/rt-editor/ui/button'
 import { cn } from '@/components/content/preview/rt-editor/lib/utils'
-import { type TDiscussion, discussionPlugin } from '@/components/content/preview/rt-editor/plugins/discussion-plugin'
+import { type TDiscussion, discussionPlugin } from '@/components/content/preview/rt-editor/discussion-plugin'
 import { useCreateEditor } from '@/components/content/preview/rt-editor/use-create-editor'
 
 import type { TComment } from './comment'

@@ -19,9 +19,9 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from '@/components/content/preview/rt-editor/ui/popover'
-import { commentsPlugin } from '@/components/content/preview/rt-editor/plugins/comments-plugin'
-import { type TDiscussion, discussionPlugin } from '@/components/content/preview/rt-editor/plugins/discussion-plugin'
-import { suggestionPlugin } from '@/components/content/preview/rt-editor/plugins/suggestion-plugin'
+import { commentsPlugin } from '@/components/content/preview/rt-editor/comments-plugin'
+import { type TDiscussion, discussionPlugin } from '@/components/content/preview/rt-editor/discussion-plugin'
+import { suggestionPlugin } from '@/components/content/preview/rt-editor/suggestion-plugin'
 
 import { BlockSuggestionCard, isResolvedSuggestion, useResolveSuggestion } from './block-suggestion'
 import { Comment } from './comment'

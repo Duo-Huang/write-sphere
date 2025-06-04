@@ -19,7 +19,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/content/preview/rt-editor/ui/dropdown-menu'
 import { cn } from '@/components/content/preview/rt-editor/lib/utils'
-import { discussionPlugin } from '@/components/content/preview/rt-editor/plugins/discussion-plugin'
+import { discussionPlugin } from '@/components/content/preview/rt-editor/discussion-plugin'
 
 import { useCommentEditor } from './comment-create-form'
 import { Editor, EditorContainer } from './editor'

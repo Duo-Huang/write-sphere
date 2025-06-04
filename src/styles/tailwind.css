@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
-@plugin "tailwind-scrollbar-hide";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
 
 @theme {
     --font-lxgwwenkai: LXGW WenKai Screen;
@@ -13,28 +10,4 @@
     --breakpoint-lg: 1024px;
     --breakpoint-xl: 1280px;
     --breakpoint-2xl: 1536px;
-}
-
-:root {
-    --brand: oklch(0.623 0.214 259.815);
-    --highlight: oklch(0.852 0.199 91.936);
-}
-
-.dark {
-    --brand: oklch(0.707 0.165 254.624);
-    --highlight: oklch(0.852 0.199 91.936);
-}
-
-@theme inline {
-    --color-brand: var(--brand);
-    --color-highlight: var(--highlight);
-}
-
-@layer base {
-    * {
-        @apply border-border outline-ring/50;
-    }
-    body {
-        @apply bg-background text-foreground;
-    }
 }

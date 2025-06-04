@@ -8,7 +8,7 @@ import remarkEmoji from 'remark-emoji'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 
-import { editorPlugins } from '@/components/content/preview/rt-editor/plugins/editor-plugins'
+import { editorPlugins } from '@/components/content/preview/rt-editor/editor-plugins'
 import { editorComponents } from '@/components/content/preview/rt-editor/use-create-editor'
 import { useDebounce } from '@/hooks/use-debounce'
 import { Editor, EditorContainer } from '@/components/content/preview/rt-editor/ui/editor'
