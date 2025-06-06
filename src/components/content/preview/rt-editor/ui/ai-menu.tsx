@@ -120,7 +120,11 @@ export function AIMenu() {
                 align="center"
                 side="bottom"
             >
-                <Command className="w-full rounded-lg border shadow-md" value={value} onValueChange={setValue}>
+                <Command
+                    className="w-full rounded-lg shadow-lg dark:shadow-black/60"
+                    value={value}
+                    onValueChange={setValue}
+                >
                     {mode === 'chat' && isSelecting && content && <AIChatEditor content={content} />}
 
                     {isLoading ? (

@@ -13,7 +13,7 @@ export function LinkElement(props: PlateElementProps<TLinkElement>) {
         <PlateElement
             {...props}
             as="a"
-            className="text-primary decoration-primary font-medium underline underline-offset-4"
+            className="text-primary decoration-primary font-medium underline underline-offset-4 transition-colors duration-500 ease-out"
             attributes={{
                 ...props.attributes,
                 ...(linkProps as any),

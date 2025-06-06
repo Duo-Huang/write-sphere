@@ -1,0 +1,1 @@
+export const EDITOR_CHANGE_DEBOUNCE_TIME = 1000

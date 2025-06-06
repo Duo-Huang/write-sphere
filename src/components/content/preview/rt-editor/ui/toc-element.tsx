@@ -1,12 +1,15 @@
 'use client'
 
-import type { PlateElementProps } from '@udecode/plate/react'
-
-import { useTocElement, useTocElementState } from '@udecode/plate-heading/react'
+import { type PlateElementProps } from '@udecode/plate/react'
+import { NodeApi } from '@udecode/plate'
+import { useTocElementState } from '@udecode/plate-heading/react'
+import { type Heading } from '@udecode/plate-heading'
 import { PlateElement } from '@udecode/plate/react'
 import { cva } from 'class-variance-authority'
 
 import { Button } from './button'
+
+import { heightToTop } from '../lib/utils'
 
 const headingItemVariants = cva(
     'block h-auto w-full cursor-pointer truncate rounded-none px-0.5 py-1.5 text-left font-medium text-muted-foreground underline decoration-[0.5px] underline-offset-4 hover:bg-accent hover:text-muted-foreground',
@@ -23,8 +26,38 @@ const headingItemVariants = cva(
 
 export function TocElement(props: PlateElementProps) {
     const state = useTocElementState()
-    const { props: btnProps } = useTocElement(state)
-    const { headingList } = state
+
+    const { headingList, editor } = state
+
+    const handleClick = (
+        e: React.MouseEvent<HTMLElement, globalThis.MouseEvent>,
+        item: Heading,
+        behavior: ScrollBehavior = 'smooth'
+    ) => {
+        e.preventDefault()
+        const { id, path } = item
+        const node = NodeApi.get(editor, path)
+
+        if (!node) return
+
+        const el = editor.api.toDOMNode(node)
+
+        if (!el) return
+
+        const containerEle = document.getElementById('rt-editor-container') as HTMLDivElement
+        if (!containerEle) return
+
+        const topOffset = 80
+
+        containerEle.scrollTo({
+            behavior,
+            top: heightToTop(el, containerEle) - topOffset,
+        })
+
+        setTimeout(() => {
+            editor.getApi({ key: 'blockSelection' }).blockSelection?.addSelectedRow?.(id)
+        }, 0)
+    }
 
     return (
         <PlateElement {...props} className="mb-1 p-0">
@@ -37,7 +70,7 @@ export function TocElement(props: PlateElementProps) {
                             className={headingItemVariants({
                                 depth: item.depth as 1 | 2 | 3,
                             })}
-                            onClick={(e) => btnProps.onClick(e, item, 'smooth')}
+                            onClick={(e) => handleClick(e, item)}
                             aria-current
                         >
                             {item.title}

@@ -2,7 +2,6 @@ import { memo, useCallback, useMemo } from 'react'
 import CodeMirror, { EditorView, type BasicSetupOptions } from '@uiw/react-codemirror'
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown'
 import { languages } from '@codemirror/language-data'
-import { debounce } from 'throttle-debounce'
 import useStore from '@/store'
 import { SETTING } from '@/constants'
 import light from './theme/light'
@@ -64,7 +63,7 @@ const CmEditor = memo(({ className }: { className?: string }) => {
         )
     }, [appTheme])
 
-    const handleChange = useMemo(() => debounce(300, (value: string) => setContent(value)), [setContent])
+    const handleChange = (value: string) => setContent(value)
 
     const onCreateEditor = useCallback(
         (view: EditorView) => {

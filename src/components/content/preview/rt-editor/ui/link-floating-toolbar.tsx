@@ -21,7 +21,7 @@ import { buttonVariants } from './button'
 import { Separator } from './separator'
 
 const popoverVariants = cva(
-    'z-50 w-auto rounded-md border bg-popover p-1 text-popover-foreground shadow-md outline-hidden'
+    'z-50 w-auto rounded-md bg-popover p-1 text-popover-foreground shadow-lg dark:shadow-black/60 outline-hidden'
 )
 
 const inputVariants = cva(

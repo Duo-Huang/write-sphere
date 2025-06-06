@@ -1,6 +1,6 @@
 import { keymap, type KeyBinding } from '@uiw/react-codemirror'
 import { defaultKeymap } from '@codemirror/commands'
-import { MARKDOWN_BLOCK_FORMATS, MARKDOWN_INLINE_FORMATS } from '@/constants/editor'
+import { MARKDOWN_BLOCK_FORMATS, MARKDOWN_INLINE_FORMATS } from '@/constants/cm-editor'
 import { createMarkdownFormatCommand } from './utils'
 
 // Ref to: https://github.com/codemirror/commands/blob/main/src/commands.ts#L897

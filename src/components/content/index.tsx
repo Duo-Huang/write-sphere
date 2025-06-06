@@ -22,6 +22,7 @@ const Content = () => {
                 <ModeBar />
             </div>
             <div
+                id="rt-editor-container"
                 className={`@container/perview ${isPreviewFullScreen ? 'basis-full' : isEditorFullScreen ? 'basis-0 !p-0' : 'basis-1/2'} overflow-y-auto p-6 duration-500`}
             >
                 <Preview className="p-0 transition-[padding] duration-500 @5xl/perview:px-100" />

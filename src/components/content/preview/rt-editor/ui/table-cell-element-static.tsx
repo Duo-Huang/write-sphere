@@ -26,6 +26,7 @@ export function TableCellElementStatic({
             as={isHeader ? 'th' : 'td'}
             className={cn(
                 'bg-background h-full overflow-visible border-none p-0',
+                'transition-colors duration-500 ease-out',
                 element.background ? 'bg-(--cellBackground)' : 'bg-background',
                 isHeader && 'text-left font-normal *:m-0',
                 'before:size-full',

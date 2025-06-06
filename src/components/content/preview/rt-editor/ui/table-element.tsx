@@ -109,7 +109,7 @@ export function TableFloatingToolbar({ children, ...props }: React.ComponentProp
             <PopoverAnchor asChild>{children}</PopoverAnchor>
             <PopoverContent asChild onOpenAutoFocus={(e) => e.preventDefault()} contentEditable={false} {...props}>
                 <Toolbar
-                    className="scrollbar-hide bg-popover flex w-auto max-w-[80vw] flex-row overflow-x-auto rounded-md border p-1 shadow-md print:hidden"
+                    className="scrollbar-hide bg-popover flex w-auto max-w-[80vw] flex-row overflow-x-auto rounded-md p-1 shadow-lg transition-colors duration-500 ease-out dark:shadow-black/60 print:hidden"
                     contentEditable={false}
                 >
                     <ToolbarGroup>

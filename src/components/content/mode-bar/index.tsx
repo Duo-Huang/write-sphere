@@ -41,19 +41,19 @@ const ModeBar = () => {
         <div className="flex h-full flex-col items-center justify-between">
             <div>
                 <button
-                    className={`mb-2 flex h-6 w-full items-center justify-center overflow-hidden rounded transition-all duration-500 disabled:cursor-not-allowed ${getActionBtnClass(!mode[SETTING.MODE.HEADLESS])} ${mode[SETTING.MODE.FOCUS] ? '!m-0 !h-0' : ''}`}
+                    className={`mb-2 flex h-6 w-full cursor-pointer items-center justify-center overflow-hidden rounded transition-all duration-500 disabled:cursor-not-allowed ${getActionBtnClass(!mode[SETTING.MODE.HEADLESS])} ${mode[SETTING.MODE.FOCUS] ? '!m-0 !h-0' : ''}`}
                     onClick={() => toggleMode(SETTING.MODE.HEADLESS)}
                 >
                     <Icon name="menuToggleTop" className="!size-6 text-gray-600 dark:text-neutral-500" />
                 </button>
                 <button
-                    className={`mb-2 flex h-6 w-full items-center justify-center overflow-hidden rounded transition-all duration-300 disabled:cursor-not-allowed ${getActionBtnClass(!mode[SETTING.MODE.EDIT])} ${mode[SETTING.MODE.FOCUS] ? '!m-0 !h-0' : ''} ${currentScreen === SCREEN.SIZE.XS ? 'hidden' : ''}`}
+                    className={`mb-2 flex h-6 w-full cursor-pointer items-center justify-center overflow-hidden rounded transition-all duration-300 disabled:cursor-not-allowed ${getActionBtnClass(!mode[SETTING.MODE.EDIT])} ${mode[SETTING.MODE.FOCUS] ? '!m-0 !h-0' : ''} ${currentScreen === SCREEN.SIZE.XS ? 'hidden' : ''}`}
                     onClick={toggleEditMode}
                 >
                     <Icon name="sideToggle" className="!size-6 text-gray-600 dark:text-neutral-500" />
                 </button>
                 <button
-                    className={`flex h-6 w-full items-center justify-center overflow-hidden rounded transition-all duration-300 disabled:cursor-not-allowed ${getActionBtnClass(!mode[SETTING.MODE.PREVIEW])} ${mode[SETTING.MODE.FOCUS] ? '!m-0 !h-0' : ''}`}
+                    className={`flex h-6 w-full cursor-pointer items-center justify-center overflow-hidden rounded transition-all duration-300 disabled:cursor-not-allowed ${getActionBtnClass(!mode[SETTING.MODE.PREVIEW])} ${mode[SETTING.MODE.FOCUS] ? '!m-0 !h-0' : ''}`}
                     onClick={() => toggleMode(SETTING.MODE.PREVIEW)}
                 >
                     <Icon name="eye" className="!size-6 text-gray-600 dark:text-neutral-500" />
@@ -67,13 +67,13 @@ const ModeBar = () => {
                     <Icon name="focus" className="!size-6 text-gray-600 dark:text-neutral-500" />
                 </button>
                 <button
-                    className={`mt-2 flex h-6 w-full items-center justify-center overflow-hidden rounded transition-all duration-300 disabled:cursor-not-allowed ${getActionBtnClass(mode[SETTING.MODE.SYNC_SCROLL])} ${mode[SETTING.MODE.FOCUS] ? '!m-0 !h-0' : ''}`}
+                    className={`mt-2 flex h-6 w-full cursor-pointer items-center justify-center overflow-hidden rounded transition-all duration-300 disabled:cursor-not-allowed ${getActionBtnClass(mode[SETTING.MODE.SYNC_SCROLL])} ${mode[SETTING.MODE.FOCUS] ? '!m-0 !h-0' : ''}`}
                     onClick={() => toggleMode(SETTING.MODE.SYNC_SCROLL)}
                 >
                     <Icon name="syncScroll" className="!size-6 text-gray-600 dark:text-neutral-500" />
                 </button>
                 <button
-                    className={`mt-2 flex h-6 w-full items-center justify-center overflow-hidden rounded transition-all duration-300 disabled:cursor-not-allowed ${getActionBtnClass(!mode[SETTING.MODE.FOOTLESS])} ${mode[SETTING.MODE.FOCUS] ? '!m-0 !h-0' : ''}`}
+                    className={`cursor-pointerite ms-center mt-2 flex h-6 w-full cursor-pointer justify-center overflow-hidden rounded transition-all duration-300 disabled:cursor-not-allowed ${getActionBtnClass(!mode[SETTING.MODE.FOOTLESS])} ${mode[SETTING.MODE.FOCUS] ? '!m-0 !h-0' : ''}`}
                     onClick={() => toggleMode(SETTING.MODE.FOOTLESS)}
                 >
                     <Icon name="menuToggleBottom" className="!size-6 text-gray-600 dark:text-neutral-500" />
