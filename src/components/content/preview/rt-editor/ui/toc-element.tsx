@@ -34,6 +34,8 @@ export function TocElement(props: PlateElementProps) {
         item: Heading,
         behavior: ScrollBehavior = 'smooth'
     ) => {
+        console.log('start click')
+
         e.preventDefault()
         const { id, path } = item
         const node = NodeApi.get(editor, path)
@@ -48,11 +50,13 @@ export function TocElement(props: PlateElementProps) {
         if (!containerEle) return
 
         const topOffset = 80
+        console.log('heightToTop')
 
         containerEle.scrollTo({
             behavior,
             top: heightToTop(el, containerEle) - topOffset,
         })
+        console.log('scroll down', heightToTop(el, containerEle) - topOffset)
 
         setTimeout(() => {
             editor.getApi({ key: 'blockSelection' }).blockSelection?.addSelectedRow?.(id)
