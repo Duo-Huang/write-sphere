@@ -62,11 +62,13 @@ export function FixedToolbarButtons() {
                         <RedoToolbarButton />
                     </ToolbarGroup>
 
-                    <ToolbarGroup>
-                        <AIToolbarButton tooltip="AI commands">
-                            <WandSparklesIcon />
-                        </AIToolbarButton>
-                    </ToolbarGroup>
+                    {import.meta.env.APP_ENABLE_AI === 'true' && (
+                        <ToolbarGroup>
+                            <AIToolbarButton tooltip="AI commands">
+                                <WandSparklesIcon />
+                            </AIToolbarButton>
+                        </ToolbarGroup>
+                    )}
 
                     <ToolbarGroup>
                         <ExportToolbarButton>

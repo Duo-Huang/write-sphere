@@ -209,7 +209,7 @@ export function ToolbarGroup({ children, className }: React.ComponentProps<'div'
             <div className="flex items-center">{children}</div>
 
             <div className="mx-1.5 py-0.5 group-last/toolbar-group:hidden!">
-                <Separator orientation="vertical" />
+                <Separator orientation="vertical" className="transition-colors duration-500 ease-out" />
             </div>
         </div>
     )

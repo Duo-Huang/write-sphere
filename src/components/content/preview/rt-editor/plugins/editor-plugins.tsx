@@ -82,7 +82,7 @@ export const viewPlugins = [
 
 export const editorPlugins = [
     // AI
-    ...aiPlugins,
+    // ...aiPlugins,
 
     // Nodes
     ...viewPlugins,
@@ -116,4 +116,4 @@ export const editorPlugins = [
     // UI
     FixedToolbarPlugin,
     FloatingToolbarPlugin,
-]
+].concat(import.meta.env.APP_ENABLE_AI === 'true' ? (aiPlugins as any) : [])

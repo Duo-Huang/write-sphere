@@ -18,7 +18,7 @@ const TopBar = () => {
                 <EditorToolbar />
             </div>
             <div className="flex items-center gap-2">
-                <Icon name="loading" className="!size-6 text-slate-700 dark:text-neutral-200" />
+                <Icon name="loading" className="!size-6" />
                 <FileName />
                 <ActionBar />
                 <Menu />

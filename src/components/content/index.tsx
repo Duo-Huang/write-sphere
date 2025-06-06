@@ -11,7 +11,7 @@ const Content = () => {
 
     return (
         <div
-            className={`fixed inset-x-0 ${isStatusBarVisible ? 'bottom-[20px]' : 'bottom-0'} ${isTopBarVisible ? 'top-[40px]' : 'top-0'} flex bg-neutral-100 duration-500 ease-out dark:bg-neutral-800`}
+            className={`fixed inset-x-0 ${isStatusBarVisible ? 'bottom-[20px]' : 'bottom-0'} ${isTopBarVisible ? 'top-[40px]' : 'top-0'} flex duration-500 ease-out`}
         >
             <div
                 className={`@container/editor ${isEditorFullScreen ? 'basis-full' : isPreviewFullScreen ? 'basis-0 !p-0' : 'basis-1/2'} overflow-y-auto p-6 duration-500`}

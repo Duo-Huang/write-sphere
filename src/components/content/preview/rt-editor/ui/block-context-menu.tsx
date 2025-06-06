@@ -101,13 +101,15 @@ export function BlockContextMenu({ children }: { children: React.ReactNode }) {
                 }}
             >
                 <ContextMenuGroup>
-                    <ContextMenuItem
-                        onClick={() => {
-                            setValue('askAI')
-                        }}
-                    >
-                        Ask AI
-                    </ContextMenuItem>
+                    {import.meta.env.APP_ENABLE_AI === 'true' && (
+                        <ContextMenuItem
+                            onClick={() => {
+                                setValue('askAI')
+                            }}
+                        >
+                            Ask AI
+                        </ContextMenuItem>
+                    )}
                     <ContextMenuItem
                         onClick={() => {
                             editor.getTransforms(BlockSelectionPlugin).blockSelection.removeNodes()

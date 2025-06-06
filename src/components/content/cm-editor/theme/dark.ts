@@ -3,7 +3,7 @@ import colors from 'tailwindcss/colors'
 
 const dark = xcodeDarkInit({
     settings: {
-        background: colors.neutral[800],
+        background: colors.neutral[800], // keep same as container background (content/index.tsx)
         backgroundImage: '',
         foreground: colors.neutral[300],
         caret: colors.lime[300],

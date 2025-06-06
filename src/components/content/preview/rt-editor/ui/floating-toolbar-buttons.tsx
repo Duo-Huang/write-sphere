@@ -27,12 +27,14 @@ export function FloatingToolbarButtons() {
         <>
             {!readOnly && (
                 <>
-                    <ToolbarGroup>
-                        <AIToolbarButton tooltip="AI commands">
-                            <WandSparklesIcon />
-                            Ask AI
-                        </AIToolbarButton>
-                    </ToolbarGroup>
+                    {import.meta.env.APP_ENABLE_AI === 'true' && (
+                        <ToolbarGroup>
+                            <AIToolbarButton tooltip="AI commands">
+                                <WandSparklesIcon />
+                                Ask AI
+                            </AIToolbarButton>
+                        </ToolbarGroup>
+                    )}
 
                     <ToolbarGroup>
                         <TurnIntoDropdownMenu />

@@ -11,7 +11,7 @@ import { cva } from 'class-variance-authority'
 import { cn } from '../lib/utils'
 
 const editorContainerVariants = cva(
-    'relative w-full cursor-text overflow-y-auto caret-primary select-text selection:bg-brand/25 focus-visible:outline-none [&_.slate-selection-area]:z-50 [&_.slate-selection-area]:border [&_.slate-selection-area]:border-brand/25 [&_.slate-selection-area]:bg-brand/15',
+    'relative w-full cursor-text caret-primary select-text selection:bg-brand/25 focus-visible:outline-none [&_.slate-selection-area]:z-50 [&_.slate-selection-area]:border [&_.slate-selection-area]:border-brand/25 [&_.slate-selection-area]:bg-brand/15',
     {
         defaultVariants: {
             variant: 'default',
@@ -71,7 +71,7 @@ const editorVariants = cva(
             },
             variant: {
                 ai: 'w-full px-0 text-base md:text-sm',
-                aiChat: 'max-h-[min(70vh,320px)] w-full max-w-[700px] overflow-y-auto px-3 py-2 text-base md:text-sm',
+                aiChat: 'max-h-[min(70vh,320px)] w-full max-w-[700px] px-3 py-2 text-base md:text-sm',
                 comment: cn('rounded-none border-none bg-transparent text-sm'),
                 default: 'size-full px-16 pt-4 pb-72 text-base sm:px-[max(64px,calc(50%-350px))]',
                 demo: 'size-full px-16 pt-4 pb-72 text-base sm:px-[max(64px,calc(50%-350px))]',

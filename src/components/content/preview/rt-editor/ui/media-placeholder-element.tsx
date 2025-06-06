@@ -71,6 +71,7 @@ export const MediaPlaceholderElement = withHOC(
         const { openFilePicker } = useFilePicker({
             accept: currentContent.accept,
             multiple: true,
+            // @ts-ignore
             onFilesSelected: ({ plainFiles: updatedFiles }) => {
                 const firstFile = updatedFiles[0]
                 const restFiles = updatedFiles.slice(1)
@@ -140,6 +141,7 @@ export const MediaPlaceholderElement = withHOC(
             <PlateElement className="my-1" {...props}>
                 {(!loading || !isImage) && (
                     <div
+                        id="huangduo"
                         className={cn(
                             'bg-muted hover:bg-primary/10 flex cursor-pointer items-center rounded-sm p-3 pr-9 select-none'
                         )}

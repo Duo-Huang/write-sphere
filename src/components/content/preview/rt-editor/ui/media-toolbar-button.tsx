@@ -77,6 +77,7 @@ export function MediaToolbarButton({ nodeType, ...props }: DropdownMenuProps & {
     const { openFilePicker } = useFilePicker({
         accept: currentConfig.accept,
         multiple: true,
+        // @ts-ignore
         onFilesSelected: ({ plainFiles: updatedFiles }) => {
             editor.getTransforms(PlaceholderPlugin).insert.media(updatedFiles)
         },

@@ -45,8 +45,6 @@ import { type CreatePlateEditorOptions, ParagraphPlugin, PlateLeaf, usePlateEdit
 
 import { copilotPlugins } from './plugins/copilot-plugins'
 import { editorPlugins } from './plugins/editor-plugins'
-import { FixedToolbarPlugin } from './plugins/fixed-toolbar-plugin'
-import { FloatingToolbarPlugin } from './plugins/floating-toolbar-plugin'
 import { AILeaf } from './ui/ai-leaf'
 import { BlockquoteElement } from './ui/blockquote-element'
 import { CalloutElement } from './ui/callout-element'
@@ -168,7 +166,11 @@ export const useCreateEditor = (
                 },
                 ...override,
             },
-            plugins: [...copilotPlugins, ...editorPlugins, FixedToolbarPlugin, FloatingToolbarPlugin],
+            // plugins: [...copilotPlugins, ...editorPlugins, FixedToolbarPlugin, FloatingToolbarPlugin],
+            plugins:
+                import.meta.env.APP_ENABLE_AI === 'true'
+                    ? ([...copilotPlugins, ...editorPlugins] as any)
+                    : (editorPlugins as any),
             value: [
                 {
                     children: [{ text: 'Playground' }],
