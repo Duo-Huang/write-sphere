@@ -60,7 +60,6 @@ export function TocElement(props: PlateElementProps) {
             behavior,
             top: heightToTop(el, containerEle) - topOffset,
         })
-        console.log('scroll down', heightToTop(el, containerEle) - topOffset)
 
         setTimeout(() => {
             editor.getApi({ key: 'blockSelection' }).blockSelection?.addSelectedRow?.(id)
