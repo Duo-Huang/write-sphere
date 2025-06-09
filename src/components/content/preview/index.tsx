@@ -32,6 +32,18 @@ export function PlateEditor() {
     }, [content])
 
     const onValueChange = () => {
+        const initialLoadingEle = document.getElementById('initial-loading')
+        if (initialLoadingEle) {
+            // remove initial loading
+            initialLoadingEle.ontransitionend = (e) => {
+                if (e.propertyName !== 'opacity') return
+                document.body.removeChild(initialLoadingEle)
+            }
+            setTimeout(() => {
+                initialLoadingEle.style.opacity = '0'
+            }, 0)
+        }
+
         if (ignoreNextOnValueChange.current) {
             ignoreNextOnValueChange.current = false
             return

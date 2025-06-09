@@ -47,7 +47,7 @@ const StatusBar = () => {
 
     return (
         <div
-            className={`fixed ${isStatusBarVisible ? 'bottom-0' : '-bottom-[20px]'} z-50 flex h-5 w-full items-center justify-between bg-sky-600 text-xs text-white duration-500 ease-out`}
+            className={`fixed ${isStatusBarVisible ? 'bottom-0' : '-bottom-[20px]'} z-30 flex h-5 w-full items-center justify-between bg-sky-600 text-xs text-white duration-500 ease-out`}
         >
             <div
                 className={`truncate pl-4 ${isEditorFullScreen ? 'basis-full' : isPreviewFullScreen ? 'basis-0 !pl-0' : 'basis-1/2'} duration-500`}
