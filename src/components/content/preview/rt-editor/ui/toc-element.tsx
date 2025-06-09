@@ -34,27 +34,20 @@ export function TocElement(props: PlateElementProps) {
         item: Heading,
         behavior: ScrollBehavior = 'smooth'
     ) => {
-        console.log('start click')
-
         e.preventDefault()
         const { id, path } = item
         const node = NodeApi.get(editor, path)
 
-        console.log('node', node)
-
         if (!node) return
 
         const el = editor.api.toDOMNode(node)
-        console.log('el', el)
 
         if (!el) return
 
         const containerEle = document.getElementById('rt-editor-container') as HTMLDivElement
-        console.log('containerEle', containerEle)
         if (!containerEle) return
 
         const topOffset = 80
-        console.log('heightToTop')
 
         containerEle.scrollTo({
             behavior,
