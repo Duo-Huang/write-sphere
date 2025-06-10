@@ -167,26 +167,24 @@ export const useCreateEditor = (
                 ...override,
             },
             // plugins: [...copilotPlugins, ...editorPlugins, FixedToolbarPlugin, FloatingToolbarPlugin],
-            plugins:
-                import.meta.env.APP_ENABLE_AI === 'true'
-                    ? ([...copilotPlugins, ...editorPlugins] as any)
-                    : (editorPlugins as any),
-            value: [
-                {
-                    children: [{ text: 'Playground' }],
-                    type: 'h1',
-                },
-                {
-                    children: [
-                        { text: 'A rich-text editor with AI capabilities. Try the ' },
-                        { bold: true, text: 'AI commands' },
-                        { text: ' or use ' },
-                        { kbd: true, text: 'Cmd+J' },
-                        { text: ' to open the AI menu.' },
-                    ],
-                    type: ParagraphPlugin.key,
-                },
-            ],
+            // @ts-expect-error too complex
+            plugins: import.meta.env.APP_ENABLE_AI === 'true' ? [...copilotPlugins, ...editorPlugins] : editorPlugins,
+            // value: [
+            //     {
+            //         children: [{ text: 'Playground' }],
+            //         type: 'h1',
+            //     },
+            //     {
+            //         children: [
+            //             { text: 'A rich-text editor with AI capabilities. Try the ' },
+            //             { bold: true, text: 'AI commands' },
+            //             { text: ' or use ' },
+            //             { kbd: true, text: 'Cmd+J' },
+            //             { text: ' to open the AI menu.' },
+            //         ],
+            //         type: ParagraphPlugin.key,
+            //     },
+            // ],
             ...options,
         },
         deps

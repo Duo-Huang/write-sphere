@@ -28,6 +28,18 @@ const createSettingSlice: AppStore.SliceCreator<AppStore.SettingStore> = (set, g
                 'setting/setTheme'
             )
         },
+        toggleTheme: () => {
+            set(
+                (state) => {
+                    const themes = [SETTING.THEME.SYSTEM, SETTING.THEME.LIGHT, SETTING.THEME.DARK]
+                    let themeIndex = themes.findIndex((x) => x === state.setting.theme)
+                    const nextThemeIndex = ++themeIndex
+                    state.setting.theme = themes[nextThemeIndex > 2 ? 0 : nextThemeIndex]
+                },
+                undefined,
+                'setting/toggleTheme'
+            )
+        },
         setLanguage: (language: AppStore.SettingState['language']) => {
             set(
                 {
@@ -40,6 +52,18 @@ const createSettingSlice: AppStore.SliceCreator<AppStore.SettingStore> = (set, g
                 },
                 undefined,
                 'setting/setLanguage'
+            )
+        },
+        toggleLanguage: () => {
+            set(
+                (state) => {
+                    const languages = [SETTING.LANGUAGE.SYSTEM, SETTING.LANGUAGE.ZH, SETTING.LANGUAGE.EN]
+                    let languageIndex = languages.findIndex((x) => x === state.setting.language)
+                    const nextLanguageIndex = ++languageIndex
+                    state.setting.language = languages[nextLanguageIndex > 2 ? 0 : nextLanguageIndex]
+                },
+                undefined,
+                'setting/toggleLanguage'
             )
         },
         setMode: (mode: SETTING.MODE) => {

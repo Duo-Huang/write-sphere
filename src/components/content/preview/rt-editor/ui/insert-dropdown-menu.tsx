@@ -42,6 +42,8 @@ import {
     TableOfContentsIcon,
 } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
+
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './dropdown-menu'
 import { insertBlock, insertInlineElement } from '../transforms'
 
@@ -62,46 +64,61 @@ interface Item {
 
 const groups: Group[] = [
     {
-        group: 'Basic blocks',
+        group: 'home.editor.insert.basicBlocks',
         items: [
             {
                 icon: <PilcrowIcon />,
-                label: 'Paragraph',
+                label: 'home.editor.insert.p',
                 value: ParagraphPlugin.key,
             },
             {
                 icon: <Heading1Icon />,
-                label: 'Heading 1',
+                label: 'home.editor.insert.h1',
                 value: HEADING_KEYS.h1,
             },
             {
                 icon: <Heading2Icon />,
-                label: 'Heading 2',
+                label: 'home.editor.insert.h2',
                 value: HEADING_KEYS.h2,
             },
             {
                 icon: <Heading3Icon />,
-                label: 'Heading 3',
+                label: 'home.editor.insert.h3',
                 value: HEADING_KEYS.h3,
             },
+            // {
+            //     icon: <Heading4Icon />,
+            //     label: 'home.editor.insert.h4',
+            //     value: HEADING_KEYS.h4,
+            // },
+            // {
+            //     icon: <Heading5Icon />,
+            //     label: 'home.editor.insert.h5',
+            //     value: HEADING_KEYS.h5,
+            // },
+            // {
+            //     icon: <Heading6Icon />,
+            //     label: 'home.editor.insert.h6',
+            //     value: HEADING_KEYS.h6,
+            // },
             {
                 icon: <TableIcon />,
-                label: 'Table',
+                label: 'home.editor.insert.table',
                 value: TablePlugin.key,
             },
             {
                 icon: <FileCodeIcon />,
-                label: 'Code',
+                label: 'home.editor.insert.code',
                 value: CodeBlockPlugin.key,
             },
             {
                 icon: <QuoteIcon />,
-                label: 'Quote',
+                label: 'home.editor.insert.quote',
                 value: BlockquotePlugin.key,
             },
             {
                 icon: <MinusIcon />,
-                label: 'Divider',
+                label: 'home.editor.insert.divider',
                 value: HorizontalRulePlugin.key,
             },
         ].map((item) => ({
@@ -112,26 +129,26 @@ const groups: Group[] = [
         })),
     },
     {
-        group: 'Lists',
+        group: 'home.editor.insert.list',
         items: [
             {
                 icon: <ListIcon />,
-                label: 'Bulleted list',
+                label: 'home.editor.insert.ulist',
                 value: ListStyleType.Disc,
             },
             {
                 icon: <ListOrderedIcon />,
-                label: 'Numbered list',
+                label: 'home.editor.insert.olist',
                 value: ListStyleType.Decimal,
             },
             {
                 icon: <SquareIcon />,
-                label: 'To-do list',
+                label: 'home.editor.insert.tlist',
                 value: INDENT_LIST_KEYS.todo,
             },
             {
                 icon: <ChevronRightIcon />,
-                label: 'Toggle list',
+                label: 'home.editor.insert.clist',
                 value: TogglePlugin.key,
             },
         ].map((item) => ({
@@ -142,16 +159,16 @@ const groups: Group[] = [
         })),
     },
     {
-        group: 'Media',
+        group: 'home.editor.insert.media',
         items: [
             {
                 icon: <ImageIcon />,
-                label: 'Image',
+                label: 'home.editor.insert.image',
                 value: ImagePlugin.key,
             },
             {
                 icon: <FilmIcon />,
-                label: 'Embed',
+                label: 'home.editor.insert.embed',
                 value: MediaEmbedPlugin.key,
             },
             {
@@ -167,22 +184,22 @@ const groups: Group[] = [
         })),
     },
     {
-        group: 'Advanced blocks',
+        group: 'home.editor.insert.advancedBlock',
         items: [
             {
                 icon: <TableOfContentsIcon />,
-                label: 'Table of contents',
+                label: 'home.editor.insert.toc',
                 value: TocPlugin.key,
             },
             {
                 icon: <Columns3Icon />,
-                label: '3 columns',
+                label: 'home.editor.insert.col3',
                 value: 'action_three_columns',
             },
             {
                 focusEditor: false,
                 icon: <RadicalIcon />,
-                label: 'Equation',
+                label: 'home.editor.insert.equation',
                 value: EquationPlugin.key,
             },
         ].map((item) => ({
@@ -193,23 +210,23 @@ const groups: Group[] = [
         })),
     },
     {
-        group: 'Inline',
+        group: 'home.editor.insert.inline',
         items: [
             {
                 icon: <Link2Icon />,
-                label: 'Link',
+                label: 'home.editor.insert.link',
                 value: LinkPlugin.key,
             },
             {
                 focusEditor: true,
                 icon: <CalendarIcon />,
-                label: 'Date',
+                label: 'home.editor.insert.date',
                 value: DatePlugin.key,
             },
             {
                 focusEditor: false,
                 icon: <RadicalIcon />,
-                label: 'Inline Equation',
+                label: 'home.editor.insert.inlineEquation',
                 value: InlineEquationPlugin.key,
             },
         ].map((item) => ({
@@ -222,20 +239,21 @@ const groups: Group[] = [
 ]
 
 export function InsertDropdownMenu(props: DropdownMenuProps) {
+    const { t } = useTranslation()
     const editor = useEditorRef()
     const [open, setOpen] = React.useState(false)
 
     return (
         <DropdownMenu open={open} onOpenChange={setOpen} modal={false} {...props}>
             <DropdownMenuTrigger asChild>
-                <ToolbarButton pressed={open} tooltip="Insert" isDropdown>
+                <ToolbarButton pressed={open} tooltip={t('home.editor.insert.label')} isDropdown>
                     <PlusIcon />
                 </ToolbarButton>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent className="flex max-h-[500px] min-w-0 flex-col overflow-y-auto" align="start">
                 {groups.map(({ group, items: nestedItems }) => (
-                    <ToolbarMenuGroup key={group} label={group}>
+                    <ToolbarMenuGroup key={group} label={t(group)}>
                         {nestedItems.map(({ icon, label, value, onSelect }) => (
                             <DropdownMenuItem
                                 key={value}
@@ -246,7 +264,7 @@ export function InsertDropdownMenu(props: DropdownMenuProps) {
                                 }}
                             >
                                 {icon}
-                                {label}
+                                {t(label!)}
                             </DropdownMenuItem>
                         ))}
                     </ToolbarMenuGroup>

@@ -51,6 +51,7 @@ import { useEditorRef } from '@udecode/plate/react'
 import { all, createLowlight } from 'lowlight'
 import { ArrowDownToLineIcon } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -95,6 +96,7 @@ const siteUrl = 'https://platejs.org'
 const lowlight = createLowlight(all)
 
 export function ExportToolbarButton(props: DropdownMenuProps) {
+    const { t } = useTranslation()
     const editor = useEditorRef()
     const [open, setOpen] = React.useState(false)
 
@@ -343,17 +345,17 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
     return (
         <DropdownMenu open={open} onOpenChange={setOpen} modal={false} {...props}>
             <DropdownMenuTrigger asChild>
-                <ToolbarButton pressed={open} tooltip="Export" isDropdown>
+                <ToolbarButton pressed={open} tooltip={t('home.editor.export.label')} isDropdown>
                     <ArrowDownToLineIcon className="size-4" />
                 </ToolbarButton>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent align="start">
                 <DropdownMenuGroup>
-                    <DropdownMenuItem onSelect={exportToHtml}>Export as HTML</DropdownMenuItem>
-                    <DropdownMenuItem onSelect={exportToPdf}>Export as PDF</DropdownMenuItem>
-                    <DropdownMenuItem onSelect={exportToImage}>Export as Image</DropdownMenuItem>
-                    <DropdownMenuItem onSelect={exportToMarkdown}>Export as Markdown</DropdownMenuItem>
+                    <DropdownMenuItem onSelect={exportToHtml}>{t('home.editor.export.html')}</DropdownMenuItem>
+                    <DropdownMenuItem onSelect={exportToPdf}>{t('home.editor.export.pdf')}</DropdownMenuItem>
+                    <DropdownMenuItem onSelect={exportToImage}>{t('home.editor.export.image')}</DropdownMenuItem>
+                    <DropdownMenuItem onSelect={exportToMarkdown}>{t('home.editor.export.md')}</DropdownMenuItem>
                 </DropdownMenuGroup>
             </DropdownMenuContent>
         </DropdownMenu>

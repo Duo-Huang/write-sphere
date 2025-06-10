@@ -29,7 +29,7 @@ export function PlateEditor() {
         editor.tf.reset()
         const value = editor.getApi(MarkdownPlugin).markdown.deserialize(content)
         editor.tf.setValue(value)
-    }, [content])
+    }, [editor, content])
 
     const onValueChange = () => {
         const initialLoadingEle = document.getElementById('initial-loading')

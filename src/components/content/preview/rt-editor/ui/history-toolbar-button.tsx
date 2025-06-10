@@ -2,12 +2,15 @@
 
 import * as React from 'react'
 
+import { useTranslation } from 'react-i18next'
+
 import { useEditorRef, useEditorSelector } from '@udecode/plate/react'
 import { Redo2Icon, Undo2Icon } from 'lucide-react'
 
 import { ToolbarButton } from './toolbar'
 
 export function RedoToolbarButton(props: React.ComponentProps<typeof ToolbarButton>) {
+    const { t } = useTranslation()
     const editor = useEditorRef()
     const disabled = useEditorSelector((editor) => editor.history.redos.length === 0, [])
 
@@ -17,7 +20,7 @@ export function RedoToolbarButton(props: React.ComponentProps<typeof ToolbarButt
             disabled={disabled}
             onClick={() => editor.redo()}
             onMouseDown={(e) => e.preventDefault()}
-            tooltip="Redo"
+            tooltip={t('home.editor.redo')}
         >
             <Redo2Icon />
         </ToolbarButton>
@@ -25,6 +28,7 @@ export function RedoToolbarButton(props: React.ComponentProps<typeof ToolbarButt
 }
 
 export function UndoToolbarButton(props: React.ComponentProps<typeof ToolbarButton>) {
+    const { t } = useTranslation()
     const editor = useEditorRef()
     const disabled = useEditorSelector((editor) => editor.history.undos.length === 0, [])
 
@@ -34,7 +38,7 @@ export function UndoToolbarButton(props: React.ComponentProps<typeof ToolbarButt
             disabled={disabled}
             onClick={() => editor.undo()}
             onMouseDown={(e) => e.preventDefault()}
-            tooltip="Undo"
+            tooltip={t('home.editor.undo')}
         >
             <Undo2Icon />
         </ToolbarButton>

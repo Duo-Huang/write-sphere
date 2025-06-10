@@ -1,17 +1,23 @@
 import { memo } from 'react'
-import { Button, Drawer, DrawerHeader, DrawerContent, DrawerBody, useDisclosure } from '@heroui/react'
+import { useTranslation } from 'react-i18next'
+
+import { Tooltip, Button, Drawer, DrawerHeader, DrawerContent, DrawerBody, useDisclosure } from '@heroui/react'
+import { Icon } from '@/components/common'
 import useStore from '@/store'
 import { SCREEN } from '@/constants'
 
 const Menu = memo(() => {
+    const { t } = useTranslation()
     const { isOpen, onOpen, onOpenChange } = useDisclosure()
     const currentScreen = useStore((state) => state.layout.currentScreen)
     const reset = useStore((state) => state.reset)
     return (
         <div>
-            <Button radius="none" onPress={onOpen} className="bg-transparent">
-                Menu
-            </Button>
+            <Tooltip radius="sm" content={t('home.menu')}>
+                <Button radius="none" isIconOnly onPress={onOpen} className="bg-transparent hover:!opacity-70">
+                    <Icon name="menu" className="text-default-foreground !size-6" />
+                </Button>
+            </Tooltip>
             <Drawer
                 size={currentScreen === SCREEN.SIZE.XS ? 'xs' : 'sm'}
                 backdrop="transparent"

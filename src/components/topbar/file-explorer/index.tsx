@@ -1,16 +1,21 @@
 import { memo } from 'react'
-import { Button, Drawer, DrawerHeader, DrawerContent, DrawerBody, useDisclosure } from '@heroui/react'
+import { useTranslation } from 'react-i18next'
+import { Tooltip, Button, Drawer, DrawerHeader, DrawerContent, DrawerBody, useDisclosure } from '@heroui/react'
+import { Icon } from '@/components/common'
 import useStore from '@/store'
 
 const FileExplorer = memo(() => {
+    const { t } = useTranslation()
     const { isOpen, onOpen, onOpenChange } = useDisclosure()
     const currentScreen = useStore((state) => state.layout.currentScreen)
 
     return (
         <div>
-            <Button radius="none" onPress={onOpen} className="bg-transparent">
-                File
-            </Button>
+            <Tooltip radius="sm" content={t('home.file')}>
+                <Button radius="none" isIconOnly onPress={onOpen} className="bg-transparent hover:!opacity-70">
+                    <Icon name="folder" className="text-default-foreground !size-6" />
+                </Button>
+            </Tooltip>
             <Drawer
                 size={currentScreen === 'xs' ? 'xs' : 'sm'}
                 backdrop="transparent"

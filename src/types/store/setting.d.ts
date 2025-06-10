@@ -11,7 +11,9 @@ declare global {
 
         interface SettingActions {
             setTheme: (theme: SettingState['theme']) => void
+            toggleTheme: () => void
             setLanguage: (language: SettingState['language']) => void
+            toggleLanguage: () => void
             setMode: (mode: SETTING.MODE) => void
             toggleMode: (mode: SETTING.MODE) => void
             reset: () => void

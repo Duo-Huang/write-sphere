@@ -7,6 +7,7 @@ import {
     StrikethroughPlugin,
     UnderlinePlugin,
 } from '@udecode/plate-basic-marks/react'
+import { useTranslation } from 'react-i18next'
 import { useEditorReadOnly } from '@udecode/plate/react'
 import { BoldIcon, Code2Icon, ItalicIcon, StrikethroughIcon, UnderlineIcon, WandSparklesIcon } from 'lucide-react'
 
@@ -21,6 +22,7 @@ import { ToolbarGroup } from './toolbar'
 import { TurnIntoDropdownMenu } from './turn-into-dropdown-menu'
 
 export function FloatingToolbarButtons() {
+    const { t } = useTranslation()
     const readOnly = useEditorReadOnly()
 
     return (
@@ -29,7 +31,7 @@ export function FloatingToolbarButtons() {
                 <>
                     {import.meta.env.APP_ENABLE_AI === 'true' && (
                         <ToolbarGroup>
-                            <AIToolbarButton tooltip="AI commands">
+                            <AIToolbarButton tooltip={t('home.editor.gAI')}>
                                 <WandSparklesIcon />
                                 Ask AI
                             </AIToolbarButton>

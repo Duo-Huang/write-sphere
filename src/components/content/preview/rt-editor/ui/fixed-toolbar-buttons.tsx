@@ -24,6 +24,7 @@ import {
     WandSparklesIcon,
 } from 'lucide-react'
 
+import { useTranslation } from 'react-i18next'
 import { MoreDropdownMenu } from './more-dropdown-menu'
 
 import { AIToolbarButton } from './ai-toolbar-button'
@@ -51,6 +52,7 @@ import { ToolbarGroup } from './toolbar'
 import { TurnIntoDropdownMenu } from './turn-into-dropdown-menu'
 
 export function FixedToolbarButtons() {
+    const { t } = useTranslation()
     const readOnly = useEditorReadOnly()
 
     return (
@@ -64,7 +66,7 @@ export function FixedToolbarButtons() {
 
                     {import.meta.env.APP_ENABLE_AI === 'true' && (
                         <ToolbarGroup>
-                            <AIToolbarButton tooltip="AI commands">
+                            <AIToolbarButton tooltip={t('home.editor.gAI')}>
                                 <WandSparklesIcon />
                             </AIToolbarButton>
                         </ToolbarGroup>
